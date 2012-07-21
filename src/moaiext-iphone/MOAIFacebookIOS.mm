@@ -184,6 +184,7 @@ int MOAIFacebookIOS::_postToFeed ( lua_State* L ) {
 	NSString* caption = [[ NSString alloc ] initWithUTF8String:state.GetValue < cc8* >( 4, "" ) ];
 	NSString* desc = [[ NSString alloc ] initWithUTF8String:state.GetValue < cc8* >( 5, "" ) ];
 	NSString* msg = [[ NSString alloc ] initWithUTF8String:state.GetValue < cc8* >( 6, "" ) ];
+	NSString* to = [[ NSString alloc ] initWithUTF8String:state.GetValue < cc8* >( 7, "" ) ];
 	
 	NSString* appId = [[ NSString alloc ] initWithUTF8String:MOAIFacebookIOS::Get ().mAppId.c_str() ];
 	
@@ -195,6 +196,7 @@ int MOAIFacebookIOS::_postToFeed ( lua_State* L ) {
 								   caption, @"caption",
 									  desc, @"description",
 									   msg, @"message",
+									    to, @"to",
 										nil ];
 	
 	[ MOAIFacebookIOS::Get ().mFacebook dialog:@"feed" andParams:params andDelegate:MOAIFacebookIOS::Get ().mFBDialogDelegate ];
