@@ -5,7 +5,7 @@
 ----------------------------------------------------------------
 print(MOAIFlurry)
 print (MOAIFlurryIOS)
-MOAIFlurryIOS.startSession("APIKEY")
+MOAIFlurryIOS.startSession("7PD2RBWXGV46QYR3P93H")
 
 MOAIFlurry.logEvent("Starting App")
 
