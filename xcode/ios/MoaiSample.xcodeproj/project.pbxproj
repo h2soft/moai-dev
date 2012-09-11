@@ -41,6 +41,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		6630C511151005BB00F2F031 /* libmoai-ios-facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6676D5D115100458004EA27A /* libmoai-ios-facebook.a */; };
 		6676D5D415100473004EA27A /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */; };
+		AAAE550115FF6A6E0012A274 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAE550015FF6A6E0012A274 /* libFlurry.a */; };
 		CD464CE0147259EA00501E4E /* libmoai-ios-zlcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD04AF1214725736009C20E5 /* libmoai-ios-zlcore.a */; };
 		CD508A1A155E3AF90002FC3B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CC904F13B3C1B700B2724C /* Icon-72.png */; };
 		CD508A1B155E3AF90002FC3B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CC905013B3C1B700B2724C /* Icon-Small-50.png */; };
@@ -720,6 +721,7 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* MoaiSample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoaiSample_Prefix.pch; sourceTree = "<group>"; };
 		6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook_ios_sdk.a; path = "../../3rdparty/facebookiOS/lib/facebook-ios-sdk/libfacebook_ios_sdk.a"; sourceTree = "<group>"; };
+		AAAE550015FF6A6E0012A274 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = "../../3rdparty/flurry-ios/libFlurry.a"; sourceTree = "<group>"; };
 		CD508AA2155E3AF90002FC3B /* moai-fmod-ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moai-fmod-ex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7C73AC13B95516006CFA19 /* ParticlePresets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticlePresets.cpp; path = ../../src/hosts/ParticlePresets.cpp; sourceTree = SOURCE_ROOT; };
 		CD7C73AD13B95516006CFA19 /* ParticlePresets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticlePresets.h; path = ../../src/hosts/ParticlePresets.h; sourceTree = SOURCE_ROOT; };
@@ -825,6 +827,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAE550115FF6A6E0012A274 /* libFlurry.a in Frameworks */,
 				E92D48D2153CAE6F00CB1E8A /* libCrittercism_v3_1_5.a in Frameworks */,
 				6676D5D415100473004EA27A /* libfacebook_ios_sdk.a in Frameworks */,
 				07E9F73E13B50582006396F3 /* libmoai-ios.a in Frameworks */,
@@ -991,6 +994,7 @@
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
@@ -1023,6 +1027,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAAE550015FF6A6E0012A274 /* libFlurry.a */,
 				E92D48D1153CAE6F00CB1E8A /* libCrittercism_v3_1_5.a */,
 				6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */,
 				03CC910B13B3C48400B2724C /* AudioToolbox.framework */,
@@ -1929,7 +1934,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = USE_UNTZ;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
+				);
 				PRODUCT_NAME = moai;
+				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Debug;
 		};
@@ -1937,7 +1947,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = USE_UNTZ;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
+				);
 				PRODUCT_NAME = moai;
+				VALID_ARCHS = "i386 armv6 armv7";
 			};
 			name = Release;
 		};

@@ -1603,6 +1603,14 @@
 		66D967FD14047A2500017919 /* MOAIScriptDeck.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D967F914047A2500017919 /* MOAIScriptDeck.h */; };
 		66DD89241540E7950008E0DB /* MOAIOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DD89231540E7950008E0DB /* MOAIOpenUDID.m */; };
 		66DD89271540E7AD0008E0DB /* MOAIOpenUDID.h in Headers */ = {isa = PBXBuildFile; fileRef = 66DD89261540E7AD0008E0DB /* MOAIOpenUDID.h */; };
+		AA0601C715FF6D8400100302 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601C515FF6D8400100302 /* Flurry.h */; };
+		AA0601C815FF6D8400100302 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601C515FF6D8400100302 /* Flurry.h */; };
+		AA0601C915FF6D8400100302 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0601C615FF6D8400100302 /* libFlurry.a */; };
+		AA0601CA15FF6D8400100302 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0601C615FF6D8400100302 /* libFlurry.a */; };
+		AA0601D715FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */; };
+		AA0601D815FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */; };
+		AA0601D915FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */; };
+		AA0601DA15FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */; };
 		C359A149143A81BA005E7829 /* RAudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = C359A148143A81BA005E7829 /* RAudioBuffer.h */; };
 		C37D422213B16930009600BB /* BufferedAudioSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C37D421E13B1692F009600BB /* BufferedAudioSource.h */; };
 		C37D422413B16930009600BB /* BufferedAudioSourceThread.h in Headers */ = {isa = PBXBuildFile; fileRef = C37D422013B16930009600BB /* BufferedAudioSourceThread.h */; };
@@ -4304,6 +4312,10 @@
 		66D967F914047A2500017919 /* MOAIScriptDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIScriptDeck.h; sourceTree = "<group>"; };
 		66DD89231540E7950008E0DB /* MOAIOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOAIOpenUDID.m; sourceTree = "<group>"; };
 		66DD89261540E7AD0008E0DB /* MOAIOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIOpenUDID.h; sourceTree = "<group>"; };
+		AA0601C515FF6D8400100302 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		AA0601C615FF6D8400100302 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOAIFlurryIOS.h; path = "moaiext-iphone/MOAIFlurryIOS.h"; sourceTree = "<group>"; };
+		AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIFlurryIOS.mm; path = "moaiext-iphone/MOAIFlurryIOS.mm"; sourceTree = "<group>"; };
 		C359A148143A81BA005E7829 /* RAudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAudioBuffer.h; path = ../../3rdparty/untz/src/RAudioBuffer.h; sourceTree = "<group>"; };
 		C37D421D13B1692F009600BB /* BufferedAudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BufferedAudioSource.cpp; path = ../../3rdparty/untz/src/BufferedAudioSource.cpp; sourceTree = "<group>"; };
 		C37D421E13B1692F009600BB /* BufferedAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BufferedAudioSource.h; path = ../../3rdparty/untz/src/BufferedAudioSource.h; sourceTree = "<group>"; };
@@ -5677,6 +5689,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0601CA15FF6D8400100302 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5691,6 +5704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0601C915FF6D8400100302 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5805,6 +5819,7 @@
 		032409EE13564CAF000ADC60 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				AA0601C415FF6D8400100302 /* flurry */,
 				66A643AD15462EBF009796A3 /* c-ares-1.7.5 */,
 				0725E2EB14F45AC700551DB5 /* adcolony */,
 				032409EF13564CAF000ADC60 /* box2d */,
@@ -7023,6 +7038,16 @@
 			path = ../../3rdparty/openUDID;
 			sourceTree = "<group>";
 		};
+		AA0601C415FF6D8400100302 /* flurry */ = {
+			isa = PBXGroup;
+			children = (
+				AA0601C515FF6D8400100302 /* Flurry.h */,
+				AA0601C615FF6D8400100302 /* libFlurry.a */,
+			);
+			name = flurry;
+			path = "flurry-ios";
+			sourceTree = "<group>";
+		};
 		CD04AEB6147256B0009C20E5 /* zlib */ = {
 			isa = PBXGroup;
 			children = (
@@ -8019,6 +8044,8 @@
 				CDF2C612151B146F0009D47D /* MOAIAppIOS.mm */,
 				CDF2C613151B146F0009D47D /* MOAIBillingIOS.h */,
 				CDF2C614151B146F0009D47D /* MOAIBillingIOS.mm */,
+				AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */,
+				AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */,
 				E98DBDC71537A2BF00514387 /* MOAIChartBoostIOS.h */,
 				E98DBDC91537A2CB00514387 /* MOAIChartBoostIOS.mm */,
 				E9A41AB5151AAA5400650276 /* MOAICrittercismIOS.h */,
@@ -9857,6 +9884,8 @@
 				CD04AF0514725714009C20E5 /* zconf.h in Headers */,
 				CD04AF0814725714009C20E5 /* zlib.h in Headers */,
 				CD04AF0E14725714009C20E5 /* zutil.h in Headers */,
+				AA0601C815FF6D8400100302 /* Flurry.h in Headers */,
+				AA0601D815FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10555,6 +10584,8 @@
 				66A6451815462EC0009796A3 /* inet_net_pton.h in Headers */,
 				66A6451B15462EC0009796A3 /* nameser.h in Headers */,
 				66A6451C15462EC0009796A3 /* setup_once.h in Headers */,
+				AA0601C715FF6D8400100302 /* Flurry.h in Headers */,
+				AA0601D715FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11816,6 +11847,7 @@
 				6671AEA015915C1500B36122 /* RiffFile.cpp in Sources */,
 				6671AEA215915C1500B36122 /* WaveFile.cpp in Sources */,
 				6671AEA415915C1500B36122 /* WaveFileAudioSource.cpp in Sources */,
+				AA0601DA15FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13025,6 +13057,7 @@
 				6671AE9F15915C1500B36122 /* RiffFile.cpp in Sources */,
 				6671AEA115915C1500B36122 /* WaveFile.cpp in Sources */,
 				6671AEA315915C1500B36122 /* WaveFileAudioSource.cpp in Sources */,
+				AA0601D915FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13643,6 +13676,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-osx-3rdparty";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64 ppc970 ppc7400 ppc64 ppc";
@@ -13682,6 +13719,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-osx-3rdparty";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64 ppc970 ppc7400 ppc64 ppc";
@@ -13777,6 +13818,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -13837,6 +13882,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -13984,6 +14033,10 @@
 					OPENSSL_NO_RFC3779,
 					OPENSSL_NO_STORE,
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -14019,6 +14072,10 @@
 					OPENSSL_NO_RC5,
 					OPENSSL_NO_RFC3779,
 					OPENSSL_NO_STORE,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry\"",
 				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
@@ -15551,6 +15608,10 @@
 					OPENSSL_NO_RFC3779,
 					OPENSSL_NO_STORE,
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -15610,6 +15671,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -15788,6 +15853,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-osx-3rdparty";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64 ppc970 ppc7400 ppc64 ppc";
@@ -16162,6 +16231,10 @@
 					OPENSSL_NO_RFC3779,
 					OPENSSL_NO_STORE,
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -16221,6 +16294,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -16471,6 +16548,10 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/flurry-ios\"",
+				);
 				PRODUCT_NAME = "moai-osx-3rdparty";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64 ppc970 ppc7400 ppc64 ppc";
