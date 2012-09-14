@@ -23,7 +23,7 @@
 	facebook_flags=
 	push_flags=
 	tapjoy_flags=
-  flurry_flags=
+	flurry_flags=
 	
 	while [ $# -gt 0 ];	do
 	    case "$1" in
@@ -40,7 +40,7 @@
 			--disable-facebook)  facebook_flags="-DDISABLE_FACEBOOK";;
 			--disable-push)  push_flags="-DDISABLE_NOTIFICATIONS";;
 			--disable-tapjoy)  tapjoy_flags="-DDISABLE_TAPJOY";;
-      --enable-flurry) flurry_flags="-DENABLE_FLURRY";;
+			--enable-flurry)  flurry_flags="-DENABLE_FLURRY";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -147,10 +147,10 @@
 		if [ x"$existing_tapjoy_flags" != x"$tapjoy_flags" ]; then
 			should_clean=true
 		fi
-
+		
 		if [ x"$existing_flurry_flags" != x"$flurry_flags" ]; then
 			should_clean=true
-		fi
+		fi		
 	fi
 	
 	if [ x"$should_clean" = xtrue ]; then
@@ -199,7 +199,6 @@
 	if [ x"$flurry_flags" == x ]; then
 		echo "Flurry will be disabled"
 	fi 
-
 	if [ x"$flurry_flags" != x ]; then
 		echo "Flurry will be enabled"
 	fi 
@@ -264,4 +263,4 @@
 	echo "$facebook_flags" >> libs/package.txt
 	echo "$push_flags" >> libs/package.txt
 	echo "$tapjoy_flags" >> libs/package.txt
-	echo "$flurry_flags" >> libs/package.txt
+	echo "$flurry_flags" >> libs/package.txt	

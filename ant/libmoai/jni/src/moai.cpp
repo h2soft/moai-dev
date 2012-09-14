@@ -323,7 +323,7 @@
 		REGISTER_LUA_CLASS ( MOAITapjoyAndroid );
 #endif
 
-#ifndef ENABLE_FLURRY
+#ifdef 	ENABLE_FLURRY
 		MOAIFlurryAndroid::Affirm ();
 		REGISTER_LUA_CLASS ( MOAIFlurryAndroid );
 #endif

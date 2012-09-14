@@ -23,7 +23,7 @@
 	facebook_flags=
 	push_flags=
 	tapjoy_flags=
-  flurry_flags=
+	flurry_flags=
 	
 	while [ $# -gt 0 ];	do
 	    case "$1" in
