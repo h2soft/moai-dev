@@ -1607,10 +1607,6 @@
 		66D967FD14047A2500017919 /* MOAIScriptDeck.h in Headers */ = {isa = PBXBuildFile; fileRef = 66D967F914047A2500017919 /* MOAIScriptDeck.h */; };
 		66DD89241540E7950008E0DB /* MOAIOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DD89231540E7950008E0DB /* MOAIOpenUDID.m */; };
 		66DD89271540E7AD0008E0DB /* MOAIOpenUDID.h in Headers */ = {isa = PBXBuildFile; fileRef = 66DD89261540E7AD0008E0DB /* MOAIOpenUDID.h */; };
-		AA0601C715FF6D8400100302 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601C515FF6D8400100302 /* Flurry.h */; };
-		AA0601C815FF6D8400100302 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601C515FF6D8400100302 /* Flurry.h */; };
-		AA0601C915FF6D8400100302 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0601C615FF6D8400100302 /* libFlurry.a */; };
-		AA0601CA15FF6D8400100302 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0601C615FF6D8400100302 /* libFlurry.a */; };
 		AA0601D715FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */; };
 		AA0601D815FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */; };
 		AA0601D915FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */; };
@@ -3401,6 +3397,8 @@
 		E9CA1E5B151C8578005F39B7 /* MOAIWebViewIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9CA1E59151C8578005F39B7 /* MOAIWebViewIOS.mm */; };
 		E9DE4581157EA38800630A7D /* MOAIMoviePlayerIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DE457F157EA38800630A7D /* MOAIMoviePlayerIOS.h */; };
 		E9DE4582157EA38800630A7D /* MOAIMoviePlayerIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9DE4580157EA38800630A7D /* MOAIMoviePlayerIOS.mm */; };
+		FE8E77DF160969F90050B68F /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = FE8E77DD160969F90050B68F /* Flurry.h */; };
+		FE8E77E0160969F90050B68F /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8E77DE160969F90050B68F /* libFlurry.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -4316,8 +4314,6 @@
 		66D967F914047A2500017919 /* MOAIScriptDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIScriptDeck.h; sourceTree = "<group>"; };
 		66DD89231540E7950008E0DB /* MOAIOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOAIOpenUDID.m; sourceTree = "<group>"; };
 		66DD89261540E7AD0008E0DB /* MOAIOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIOpenUDID.h; sourceTree = "<group>"; };
-		AA0601C515FF6D8400100302 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		AA0601C615FF6D8400100302 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOAIFlurryIOS.h; path = "moaiext-iphone/MOAIFlurryIOS.h"; sourceTree = "<group>"; };
 		AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIFlurryIOS.mm; path = "moaiext-iphone/MOAIFlurryIOS.mm"; sourceTree = "<group>"; };
 		C359A148143A81BA005E7829 /* RAudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAudioBuffer.h; path = ../../3rdparty/untz/src/RAudioBuffer.h; sourceTree = "<group>"; };
@@ -5685,6 +5681,8 @@
 		E9CA1E59151C8578005F39B7 /* MOAIWebViewIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIWebViewIOS.mm; path = "moaiext-iphone/MOAIWebViewIOS.mm"; sourceTree = "<group>"; };
 		E9DE457F157EA38800630A7D /* MOAIMoviePlayerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOAIMoviePlayerIOS.h; path = "moaiext-iphone/MOAIMoviePlayerIOS.h"; sourceTree = "<group>"; };
 		E9DE4580157EA38800630A7D /* MOAIMoviePlayerIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIMoviePlayerIOS.mm; path = "moaiext-iphone/MOAIMoviePlayerIOS.mm"; sourceTree = "<group>"; };
+		FE8E77DD160969F90050B68F /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		FE8E77DE160969F90050B68F /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5692,7 +5690,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0601CA15FF6D8400100302 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5707,7 +5704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA0601C915FF6D8400100302 /* libFlurry.a in Frameworks */,
+				FE8E77E0160969F90050B68F /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5822,8 +5819,8 @@
 		032409EE13564CAF000ADC60 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				FE8E77DC160969F90050B68F /* flurry-ios */,
 				2B06F6B01608C98C00F1019E /* luadecrypter */,
-				AA0601C415FF6D8400100302 /* flurry */,
 				66A643AD15462EBF009796A3 /* c-ares-1.7.5 */,
 				0725E2EB14F45AC700551DB5 /* adcolony */,
 				032409EF13564CAF000ADC60 /* box2d */,
@@ -7050,16 +7047,6 @@
 			);
 			name = openUDID;
 			path = ../../3rdparty/openUDID;
-			sourceTree = "<group>";
-		};
-		AA0601C415FF6D8400100302 /* flurry */ = {
-			isa = PBXGroup;
-			children = (
-				AA0601C515FF6D8400100302 /* Flurry.h */,
-				AA0601C615FF6D8400100302 /* libFlurry.a */,
-			);
-			name = flurry;
-			path = "flurry-ios";
 			sourceTree = "<group>";
 		};
 		CD04AEB6147256B0009C20E5 /* zlib */ = {
@@ -9646,6 +9633,16 @@
 			name = render;
 			sourceTree = "<group>";
 		};
+		FE8E77DC160969F90050B68F /* flurry-ios */ = {
+			isa = PBXGroup;
+			children = (
+				FE8E77DD160969F90050B68F /* Flurry.h */,
+				FE8E77DE160969F90050B68F /* libFlurry.a */,
+			);
+			name = "flurry-ios";
+			path = "../../3rdparty/flurry-ios";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -9897,7 +9894,6 @@
 				CD04AF0514725714009C20E5 /* zconf.h in Headers */,
 				CD04AF0814725714009C20E5 /* zlib.h in Headers */,
 				CD04AF0E14725714009C20E5 /* zutil.h in Headers */,
-				AA0601C815FF6D8400100302 /* Flurry.h in Headers */,
 				AA0601D815FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */,
 				2B06F6B41608C98C00F1019E /* androidlog.h in Headers */,
 			);
@@ -10598,9 +10594,9 @@
 				66A6451815462EC0009796A3 /* inet_net_pton.h in Headers */,
 				66A6451B15462EC0009796A3 /* nameser.h in Headers */,
 				66A6451C15462EC0009796A3 /* setup_once.h in Headers */,
-				AA0601C715FF6D8400100302 /* Flurry.h in Headers */,
 				AA0601D715FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */,
 				2B06F6B31608C98C00F1019E /* androidlog.h in Headers */,
+				FE8E77DF160969F90050B68F /* Flurry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13836,6 +13832,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry-ios\"",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
@@ -13900,6 +13897,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry-ios\"",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
@@ -15689,6 +15687,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry-ios\"",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
@@ -16312,6 +16311,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/flurry-ios\"",
+					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios-3rdparty";
 				SDKROOT = iphoneos;
