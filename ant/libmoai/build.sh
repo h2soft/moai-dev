@@ -42,7 +42,7 @@
 			--disable-push)  push_flags="-DDISABLE_NOTIFICATIONS";;
 			--disable-tapjoy)  tapjoy_flags="-DDISABLE_TAPJOY";;
 			--enable-flurry)  flurry_flags="-DENABLE_FLURRY";;
-			--enable-tstore)  flurry_flags="-DENABLE_TSTORE";;
+			--enable-tstore)  tstore_flags="-DENABLE_TSTORE";;
 			-*)
 		    	echo >&2 \
 		    		$usage
