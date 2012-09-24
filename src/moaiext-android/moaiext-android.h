@@ -12,3 +12,4 @@
 #include <moaiext-android/MOAINotificationsAndroid.h>
 #include <moaiext-android/MOAITapjoyAndroid.h>
 #include <moaiext-android/MOAIFlurryAndroid.h>
+#include <moaiext-android/MOAITstoreBilling.h>

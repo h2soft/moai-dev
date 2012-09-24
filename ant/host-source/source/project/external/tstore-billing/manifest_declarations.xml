@@ -1,0 +1,6 @@
+<!-- Tstore-Billing -->
+<activity android:label="@string/app_name" android:name="com.feelingk.iap.PwdActivity"/> 
+<!-- SMS receiver -->
+<receiver android:name="com.feelingk.iap.SmsReceiver"> 
+    <intent-filter> <action android:name="android.provider.Telephony.SMS_RECEIVED"/> </intent-filter> 
+ </receiver>

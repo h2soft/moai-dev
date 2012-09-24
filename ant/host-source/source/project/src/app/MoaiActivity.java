@@ -33,7 +33,7 @@ import com.ziplinegames.moai.*;
 //================================================================//
 // MoaiActivity
 //================================================================//
-public class MoaiActivity extends Activity {
+public class MoaiActivity extends MoaiTstoreActivity {
 
 	private AccelerometerEventListener		mAccelerometerListener = null;
 	private Sensor 							mAccelerometerSensor = null;

@@ -9,7 +9,7 @@
 	set -e
 	
 	# check for command line switches
-	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry]"
+	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry] [--enable-tstore]"
 	verbose=
 	arm_mode="arm"
 	arm_arch="armeabi-v7a"
@@ -24,6 +24,7 @@
 	push_flags=
 	tapjoy_flags=
 	flurry_flags=
+	tstore_flags=
 	
 	while [ $# -gt 0 ];	do
 	    case "$1" in
@@ -41,6 +42,7 @@
 			--disable-push)  push_flags="-DDISABLE_NOTIFICATIONS";;
 			--disable-tapjoy)  tapjoy_flags="-DDISABLE_TAPJOY";;
 			--enable-flurry)  flurry_flags="-DENABLE_FLURRY";;
+			--enable-tstore)  flurry_flags="-DENABLE_TSTORE";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -99,6 +101,7 @@
 		existing_push_flags=$( sed -n '11p' libs/package.txt )
 		existing_tapjoy_flags=$( sed -n '12p' libs/package.txt )
 		existing_flurry_flags=$( sed -n '13p' libs/package.txt )
+		existing_tstore_flags=$( sed -n '14p' libs/package.txt )
 
 		if [ x"$existing_arm_mode" != x"$arm_mode" ]; then
 			should_clean=true
@@ -149,6 +152,10 @@
 		fi
 		
 		if [ x"$existing_flurry_flags" != x"$flurry_flags" ]; then
+			should_clean=true
+		fi
+		
+		if [ x"$existing_tstore_flags" != x"$tstore_flags" ]; then
 			should_clean=true
 		fi		
 	fi
@@ -201,6 +208,10 @@
 	fi 
 	if [ x"$flurry_flags" != x ]; then
 		echo "Flurry will be enabled"
+	fi
+	
+	if [ x"$tstore_flags" != x ]; then
+		echo "Tstore will be enabled"
 	fi 
 
 	pushd jni > /dev/null
@@ -226,6 +237,7 @@
 		sed -i.backup s%@DISABLE_NOTIFICATIONS@%"$push_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@DISABLE_TAPJOY@%"$tapjoy_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@ENABLE_FLURRY@%"$flurry_flags"%g OptionalComponentsDefined.mk
+		sed -i.backup s%@ENABLE_TSTORE@%"$tstore_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_FMOD@%"$use_fmod"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_UNTZ@%"$use_untz"%g OptionalComponentsDefined.mk
 		rm -f OptionalComponentsDefined.mk.backup
@@ -263,4 +275,5 @@
 	echo "$facebook_flags" >> libs/package.txt
 	echo "$push_flags" >> libs/package.txt
 	echo "$tapjoy_flags" >> libs/package.txt
-	echo "$flurry_flags" >> libs/package.txt	
+	echo "$flurry_flags" >> libs/package.txt
+	echo "$tstore_flags" >> libs/package.txt

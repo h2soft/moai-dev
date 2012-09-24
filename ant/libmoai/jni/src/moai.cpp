@@ -327,6 +327,11 @@
 		MOAIFlurryAndroid::Affirm ();
 		REGISTER_LUA_CLASS ( MOAIFlurryAndroid );
 #endif
+		
+#ifdef 	ENABLE_TSTORE
+		MOAITstoreBilling::Affirm ();
+		REGISTER_LUA_CLASS ( MOAITstoreBilling );
+#endif
 
 		AKURunBytecode ( moai_lua, moai_lua_SIZE );
 

@@ -8,7 +8,7 @@
 
 	set -e
 
-	usage="usage: $0 -p <package> [-s] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry]"
+	usage="usage: $0 -p <package> [-s] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry] [--enable-tstore]"
 	skip_build="false"
 	package_name=
 	arm_mode="arm"
@@ -24,6 +24,7 @@
 	push_flags=
 	tapjoy_flags=
 	flurry_flags=
+	tstore_flags=
 	
 	while [ $# -gt 0 ];	do
 	    case "$1" in
@@ -42,6 +43,7 @@
 			--disable-push)  push_flags="--disable-push";;
 			--disable-tapjoy)  tapjoy_flags="--disable-tapjoy";;
 			--enable-flurry)  flurry_flags="--enable-flurry";;
+			--enable-tstore)  tstore_flags="--enable-tstore";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -93,7 +95,7 @@
 	
 	if [ x"$skip_build" != xtrue ]; then
 		pushd libmoai > /dev/null
-			bash build.sh -i $arm_mode -a $arm_arch -l $app_platform --use-fmod $use_fmod --use-untz $use_untz $adcolony_flags $billing_flags $chartboost_flags $crittercism_flags $facebook_flags $push_flags $tapjoy_flags $flurry_flags
+			bash build.sh -i $arm_mode -a $arm_arch -l $app_platform --use-fmod $use_fmod --use-untz $use_untz $adcolony_flags $billing_flags $chartboost_flags $crittercism_flags $facebook_flags $push_flags $tapjoy_flags $flurry_flags $tstore_flags
 		popd > /dev/null
 	fi
 
@@ -148,6 +150,10 @@
 
 	if [ x"$flurry_flags" != x ]; then
 		required_libs="$required_libs \"flurry\""
+	fi
+
+	if [ x"$tstore_flags" != x ]; then
+		required_libs="$required_libs \"tstore-billing\""
 	fi
 
 	cp -f host-source/d.settings-local.sh $new_host_dir/settings-local.sh
