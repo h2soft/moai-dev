@@ -44,7 +44,7 @@ public class MoaiTstoreBilling {
     setting.BP_IP           = null;
     setting.BP_Port         = 0;
 		setting.ClientListener  = mListener;
-		IAPLibInit(setting);
+		sActivity.IAPLibInit(setting);
 	}
 	
 	public static void requestPurchase(String productId) {
