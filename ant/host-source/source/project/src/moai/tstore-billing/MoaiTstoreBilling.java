@@ -43,7 +43,7 @@ public class MoaiTstoreBilling {
     setting.AppID           = appId;
     setting.BP_IP           = null;
     setting.BP_Port         = 0;
-		setting.ClientListener  = mListener;
+		setting.ClientListener  = sListener;
 		sActivity.IAPLibInit(setting);
 	}
 	
@@ -52,7 +52,7 @@ public class MoaiTstoreBilling {
 	}
 	
 	
-  OnClientListener mListener = new OnClientListener() {
+  static OnClientListener sListener = new OnClientListener() {
 		public void onItemPurchaseComplete() {
 			synchronized ( Moai.sAkuLock ) {
 				AKUNotifyTstorePurchaseComplete ( );
