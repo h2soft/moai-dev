@@ -7,7 +7,7 @@
 #ifndef MOAIFLURRYANDROID_H
 #define MOAIFLURRYANDROID_H
 
-#ifdef ENABLE_FLURRY
+#ifndef DISABLE_FLURRY
 
 #include <moaicore/moaicore.h>
 
@@ -43,6 +43,6 @@ public:
 	void	RegisterLuaClass	( MOAILuaState& state );
 };
 
-#endif  //ENABLE_FLURRY
+#endif  //DISABLE_FLURRY
 
 #endif // MOAIFLURRY_H

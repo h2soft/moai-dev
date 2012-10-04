@@ -9,7 +9,7 @@
 	set -e
 	
 	# check for command line switches
-	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry] [--enable-tstore]"
+	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--disable-flurry] [--disable-tstore]"
 	verbose=
 	arm_mode="arm"
 	arm_arch="armeabi-v7a"
@@ -41,8 +41,8 @@
 			--disable-facebook)  facebook_flags="-DDISABLE_FACEBOOK";;
 			--disable-push)  push_flags="-DDISABLE_NOTIFICATIONS";;
 			--disable-tapjoy)  tapjoy_flags="-DDISABLE_TAPJOY";;
-			--enable-flurry)  flurry_flags="-DENABLE_FLURRY";;
-			--enable-tstore)  tstore_flags="-DENABLE_TSTORE";;
+			--disable-flurry)  flurry_flags="-DDISABLE_FLURRY";;
+			--disable-tstore)  tstore_flags="-DDISABLE_TSTORE";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -203,14 +203,17 @@
 		echo "Tapjoy will be disabled"
 	fi 
 
-	if [ x"$flurry_flags" == x ]; then
+	if [ x"$flurry_flags" != x ]; then
 		echo "Flurry will be disabled"
 	fi 
-	if [ x"$flurry_flags" != x ]; then
+	if [ x"$flurry_flags" == x ]; then
 		echo "Flurry will be enabled"
 	fi
 	
 	if [ x"$tstore_flags" != x ]; then
+		echo "Tstore will be disabled"
+	fi 
+	if [ x"$tstore_flags" == x ]; then
 		echo "Tstore will be enabled"
 	fi 
 
@@ -236,8 +239,8 @@
 		sed -i.backup s%@DISABLE_FACEBOOK@%"$facebook_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@DISABLE_NOTIFICATIONS@%"$push_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@DISABLE_TAPJOY@%"$tapjoy_flags"%g OptionalComponentsDefined.mk
-		sed -i.backup s%@ENABLE_FLURRY@%"$flurry_flags"%g OptionalComponentsDefined.mk
-		sed -i.backup s%@ENABLE_TSTORE@%"$tstore_flags"%g OptionalComponentsDefined.mk
+		sed -i.backup s%@DISABLE_FLURRY@%"$flurry_flags"%g OptionalComponentsDefined.mk
+		sed -i.backup s%@DISABLE_TSTORE@%"$tstore_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_FMOD@%"$use_fmod"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_UNTZ@%"$use_untz"%g OptionalComponentsDefined.mk
 		rm -f OptionalComponentsDefined.mk.backup

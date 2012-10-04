@@ -1,8 +1,5 @@
 // Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
 // http://getmoai.com
-
-#ifdef ENABLE_FLURRY
-
 #include "pch.h"
 
 #include <jni.h>
@@ -299,5 +296,3 @@ void MOAIFlurryAndroid::RegisterLuaClass ( MOAILuaState& state ) {
 
 	luaL_register ( state, 0, regTable );
 }
-
-#endif

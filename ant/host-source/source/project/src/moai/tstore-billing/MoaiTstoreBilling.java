@@ -44,7 +44,9 @@ public class MoaiTstoreBilling {
     setting.BP_IP           = null;
     setting.BP_Port         = 0;
 		setting.ClientListener  = sListener;
-		sActivity.IAPLibInit(setting);
+    try {
+      sActivity.IAPLibInit(setting);
+    } catch(Exception e) {}
 	}
 	
 	public static void requestPurchase(String productId) {
@@ -83,9 +85,6 @@ public class MoaiTstoreBilling {
 		
 		@Override
 		public void onDlgError() {}
-
-		@Override
-		public void onJuminNumberDlgCancel() {}
 
 		@Override
 		public void onDlgAutoPurchaseInfoCancel() {}

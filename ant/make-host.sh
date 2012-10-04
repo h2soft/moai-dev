@@ -8,7 +8,7 @@
 
 	set -e
 
-	usage="usage: $0 -p <package> [-s] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--enable-flurry] [--enable-tstore]"
+	usage="usage: $0 -p <package> [-s] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--disable-flurry] [--disable-tstore]"
 	skip_build="false"
 	package_name=
 	arm_mode="arm"
@@ -42,8 +42,8 @@
 			--disable-facebook)  facebook_flags="--disable-facebook";;
 			--disable-push)  push_flags="--disable-push";;
 			--disable-tapjoy)  tapjoy_flags="--disable-tapjoy";;
-			--enable-flurry)  flurry_flags="--enable-flurry";;
-			--enable-tstore)  tstore_flags="--enable-tstore";;
+			--disable-flurry)  flurry_flags="--disable-flurry";;
+			--disable-tstore)  tstore_flags="--disable-tstore";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -148,11 +148,11 @@
 		required_libs="$required_libs \"tapjoy\""
 	fi
 
-	if [ x"$flurry_flags" != x ]; then
+	if [ x"$flurry_flags" == x ]; then
 		required_libs="$required_libs \"flurry\""
 	fi
 
-	if [ x"$tstore_flags" != x ]; then
+	if [ x"$tstore_flags" == x ]; then
 		required_libs="$required_libs \"tstore-billing\""
 	fi
 

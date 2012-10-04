@@ -323,12 +323,12 @@
 		REGISTER_LUA_CLASS ( MOAITapjoyAndroid );
 #endif
 
-#ifdef 	ENABLE_FLURRY
+#ifndef DISABLE_FLURRY
 		MOAIFlurryAndroid::Affirm ();
 		REGISTER_LUA_CLASS ( MOAIFlurryAndroid );
 #endif
 		
-#ifdef 	ENABLE_TSTORE
+#ifndef DISABLE_TSTORE
 		MOAITstoreBilling::Affirm ();
 		REGISTER_LUA_CLASS ( MOAITstoreBilling );
 #endif
