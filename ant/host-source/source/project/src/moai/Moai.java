@@ -129,6 +129,7 @@ public class Moai {
 		"com.ziplinegames.moai.MoaiTapjoy",
 		"com.ziplinegames.moai.MoaiFlurry",
 		"com.ziplinegames.moai.MoaiTstoreBilling",
+		"com.ziplinegames.moai.MoaiKakaoLink",
 	};
 	
 	private static Activity 				sActivity = null;

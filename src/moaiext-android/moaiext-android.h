@@ -13,3 +13,4 @@
 #include <moaiext-android/MOAITapjoyAndroid.h>
 #include <moaiext-android/MOAIFlurryAndroid.h>
 #include <moaiext-android/MOAITstoreBilling.h>
+#include <moaiext-android/MOAIKakaoLink.h>

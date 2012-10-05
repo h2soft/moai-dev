@@ -11,7 +11,7 @@
 # slashes as directory separators, e.g. C:/android-sdk)
 #----------------------------------------------------------------#
 
-	android_sdk_root=""
+	android_sdk_root="/Applications/android-sdk-mac_x86"
 
 #----------------------------------------------------------------#
 # space-delimited list of source lua directories to add to the 
@@ -19,7 +19,7 @@
 # the assets directory of the bundle
 #----------------------------------------------------------------#
 
-	src_dirs=( "../../samples/anim/anim-basic" )
+	src_dirs=( "../../samples/android/app-kakao-link" )
 	dest_dirs=(	"lua" )
 
 #----------------------------------------------------------------#
