@@ -69,6 +69,13 @@ public class MoaiTstoreBilling {
 		}
 
 		@Override
+		public void onPurchaseDismiss() {
+			synchronized ( Moai.sAkuLock ) {
+				AKUNotifyTstorePurchaseCancel ( );
+			}
+    }
+
+		@Override
 		public void onError(int errorCode, int subErrorCode) {    
 			synchronized ( Moai.sAkuLock ) {
 				AKUNotifyTstorePurchaseError ( errorCode, subErrorCode );
@@ -84,15 +91,24 @@ public class MoaiTstoreBilling {
 		public void onItemAuthInfo(ItemAuthInfo itemAuth) {}
 		
 		@Override
-		public void onDlgError() {}
+		public void onDlgError() {
+			synchronized ( Moai.sAkuLock ) {
+				AKUNotifyTstorePurchaseCancel ( );
+			}
+    }
 
 		@Override
-		public void onDlgAutoPurchaseInfoCancel() {}
+		public void onDlgAutoPurchaseInfoCancel() {
+			synchronized ( Moai.sAkuLock ) {
+				AKUNotifyTstorePurchaseCancel ( );
+			}
+    }
 
 		@Override
-		public void onJoinDialogCancel() {}
-
-		@Override
-		public void onPurchaseDismiss() {}
+		public void onJoinDialogCancel() {
+			synchronized ( Moai.sAkuLock ) {
+				AKUNotifyTstorePurchaseCancel ( );
+			}
+    }
 	};
 }

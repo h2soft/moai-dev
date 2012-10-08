@@ -19,7 +19,7 @@
 # the assets directory of the bundle
 #----------------------------------------------------------------#
 
-	src_dirs=( "../../samples/android/app-kakao-link" )
+	src_dirs=( "../../samples/anim/anim-basic" )
 	dest_dirs=(	"lua" )
 
 #----------------------------------------------------------------#
