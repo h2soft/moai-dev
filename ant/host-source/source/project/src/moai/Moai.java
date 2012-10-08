@@ -172,6 +172,8 @@ public class Moai {
 	protected static native void 	AKUSetScreenSize				( int width, int height );
 	protected static native void 	AKUSetViewSize					( int width, int height );
 	protected static native void 	AKUSetWorkingDirectory 			( String path );
+	protected static native void 	AKUSetCountryCode 			( String name );
+	protected static native void 	AKUSetLanguageCode 			( String name );
 	protected static native void 	AKUUntzInit			 			();
 	protected static native void 	AKUUpdate				 		();
 
@@ -479,7 +481,23 @@ public class Moai {
 			AKUSetWorkingDirectory ( path );
 		}
 	}	
+
+	//----------------------------------------------------------------//
+	public static void setCountryCode ( String name ) {
+		
+		synchronized ( sAkuLock ) {
+			AKUSetCountryCode ( name );
+		}
+	}	
 	
+	//----------------------------------------------------------------//
+	public static void setLanguageCode ( String name ) {
+		
+		synchronized ( sAkuLock ) {
+			AKUSetLanguageCode ( name );
+		}
+	}	
+
 	//----------------------------------------------------------------//
 	public static void startSession ( boolean resumed ) {
 		

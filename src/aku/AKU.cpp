@@ -485,6 +485,18 @@ int AKUSetWorkingDirectory ( char const* path ) {
 }
 
 //----------------------------------------------------------------//
+void AKUSetCountryCode ( char const* str ) {
+  
+  MOAIEnvironment::Get ().SetValue ( MOAI_ENV_countryCode, str);
+}
+
+//----------------------------------------------------------------//
+void AKUSetLanguageCode ( char const* str ) {
+
+  MOAIEnvironment::Get ().SetValue ( MOAI_ENV_languageCode, str);
+}
+
+//----------------------------------------------------------------//
 void AKUSoftReleaseGfxResources ( int age ) {
 
 	MOAIGfxDevice::Get ().SoftReleaseResources ( age );

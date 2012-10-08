@@ -41,7 +41,7 @@
 	LOCAL_SRC_FILES 	+= $(MY_MOAI_ROOT)/3rdparty/lua-5.1.3/src/lbaselib.c
 	LOCAL_SRC_FILES 	+= $(MY_MOAI_ROOT)/3rdparty/lua-5.1.3/src/loadlib.c
 	LOCAL_SRC_FILES 	+= $(MY_MOAI_ROOT)/3rdparty/lua-5.1.3/src/lauxlib.c
-	#LOCAL_SRC_FILES 	+= $(MY_MOAI_ROOT)/3rdparty/luadecrypter/lauxlib_decrypt_edit.c
+	#LOCAL_SRC_FILES 	+= $(MY_MOAI_ROOT)/../moaimoai/tools/decrypt/luadecrypter/lauxlib_decrypt_edit.c
 
 
 	include $(BUILD_STATIC_LIBRARY)

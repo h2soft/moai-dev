@@ -564,6 +564,24 @@
 		JNI_RELEASE_CSTRING ( jpath, path );
 	}
 
+	extern "C" void Java_com_ziplinegames_moai_Moai_AKUSetCountryCode ( JNIEnv* env, jclass obj, jstring jname ) {
+
+		JNI_GET_CSTRING ( jname, name );
+
+    AKUSetCountryCode( name );
+	
+		JNI_RELEASE_CSTRING ( jname, name );
+	}
+
+	extern "C" void Java_com_ziplinegames_moai_Moai_AKUSetLanguageCode ( JNIEnv* env, jclass obj, jstring jname ) {
+
+		JNI_GET_CSTRING ( jname, name );
+
+    AKUSetLanguageCode( name );
+	
+		JNI_RELEASE_CSTRING ( jname, name );
+	}
+
 	//----------------------------------------------------------------//
 	extern "C" void Java_com_ziplinegames_moai_Moai_AKUUntzInit ( JNIEnv* env, jclass obj ) {
 		

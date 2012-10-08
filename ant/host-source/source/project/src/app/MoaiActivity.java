@@ -27,13 +27,14 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.Locale;
 // Moai
 import com.ziplinegames.moai.*;
 
 //================================================================//
 // MoaiActivity
 //================================================================//
-public class MoaiActivity extends MoaiTstoreActivity {
+public class MoaiActivity extends Activity {
 
 	private AccelerometerEventListener		mAccelerometerListener = null;
 	private Sensor 							mAccelerometerSensor = null;
@@ -91,6 +92,28 @@ public class MoaiActivity extends MoaiTstoreActivity {
 
 			MoaiLog.e ( "MoaiActivity onCreate: Unable to set the document directory" );
 		}
+
+/*
+String disp_lang = Locale.getDefault().getDisplayLanguage();
+// 값: 한국어.
+// getDisplayLanguage 괄호 안 Locale을 적어주면 그에 맞는 값을 리턴합니다.
+
+String iso_lang  = Locale.getDefault().getLanguage();
+// 값: ko.
+// ISO-639 코드 2자리(소문자)를 리턴합니다. 
+
+    Locale systemLocale = getResources().getConfiguration().locale;
+    MoaiLog.e (systemLocale.getCountry(), systemLocale.getLanguage());
+    Moai.setCountryCode(systemLocale.getCountry());
+    Moai.setLanguageCode(systemLocale.getLanguage());
+    Locale systemLocale = getResources().getConfiguration().locale;
+    MoaiLog.i ("system" + systemLocale.getCountry() + systemLocale.getLanguage());
+
+    MoaiLog.i ("default" + Locale.getDefault().getLanguage() + Locale.getDefault().getCountry());
+**/
+
+    Moai.setLanguageCode(Locale.getDefault().getLanguage());
+    Moai.setCountryCode(Locale.getDefault().getCountry());
 				
 		Display display = (( WindowManager ) getSystemService ( Context.WINDOW_SERVICE )).getDefaultDisplay ();
 		ConfigurationInfo info = (( ActivityManager ) getSystemService ( Context.ACTIVITY_SERVICE )).getDeviceConfigurationInfo ();

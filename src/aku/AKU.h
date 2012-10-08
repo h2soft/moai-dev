@@ -82,6 +82,8 @@ AKU_API void			AKUSetScreenSize				( int width, int height );
 AKU_API void			AKUSetViewSize					( int width, int height );
 AKU_API void			AKUSoftReleaseGfxResources		( int age );
 AKU_API int				AKUSetWorkingDirectory			( char const* path );
+AKU_API void			AKUSetCountryCode			( char const* name );
+AKU_API void			AKUSetLanguageCode			( char const* name );
 AKU_API void			AKUUpdate						();
 
 // input device api
