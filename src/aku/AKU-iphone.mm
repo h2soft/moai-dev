@@ -106,6 +106,10 @@ void AKUIphoneInit ( UIApplication* application ) {
   #ifndef DISABLE_FLURRY
     REGISTER_LUA_CLASS ( MOAIFlurryIOS )
   #endif
+
+  #ifndef DISABLE_ADMOB
+    REGISTER_LUA_CLASS ( MOAIAdMobIOS )
+  #endif
 	
 	// Device properties
 	MOAIEnvironment& environment = MOAIEnvironment::Get ();
