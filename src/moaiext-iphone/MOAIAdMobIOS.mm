@@ -2,36 +2,33 @@
 // http://getmoai.com
 
 #include "pch.h"
-#import <moaiext-iphone/MOAIDialogIOS.h>
-#import "GADRequest.h"
+#import <moaiext-iphone/MOAIAdMobIOS.h>
+#import <moaiext-iphone/NSString+MOAILib.h>
+
 
 //================================================================//
 // LuaAdView
 //================================================================//
 @implementation LuaAdView
-  -(id)initWithFrame:(CGRect)frame {
-		self = [super initWithFrame:CGRectMake(0.0,
-                                            self.view.frame.size.height -
-                                            GAD_SIZE_320x50.height,
-                                            GAD_SIZE_320x50.width,
-                                            GAD_SIZE_320x50.height)];
-		if (self) {
-			self.delegate = self;
-		}
-		return self;
-  }
-	
+//  - ( id ) initWithFrame:( CGRect )frame {
+//	  self = [super initWithFrame:frame];
+//	  if (self ) {
+//		  
+//	  }
+//	  return self;
+//  }
+
 	
 	// ----------------------------------------
-	- (void)adViewDidReceiveAd:(GADBannerView *)view  {
-		
-	}
+//	- (void)adViewDidReceiveAd:(GADBannerView *)view  {
+//		
+//	}
+//
+//	- (void)adView:(GADBannerView *)view
+//	    didFailToReceiveAdWithError:(GADRequestError *)error{
+//	    	
+//	    }
 
-	- (void)adView:(GADBannerView *)view
-	    didFailToReceiveAdWithError:(GADRequestError *)error{
-	    	
-	    }
-	
 @end
 
 //================================================================//
@@ -39,22 +36,28 @@
 //================================================================//
 
 int MOAIAdMobIOS::_showBanner (lua_State* L) {
+
 	MOAILuaState state ( L );
 	
 	cc8* appID = state.GetValue < cc8* >(1, "");
-
-  UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
-  UIViewController* rootVC = [ window rootViewController ];  
+	NSString *appIdStr =[ NSString stringWithUTF8String:appID ];
+	
+	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
+	UIViewController* rootVC = [ window rootViewController ];  
   
-  LuaAdView *v = [[LuaAdView alloc] initWithFrame:CGRectZero];
-  v.adUnitID = appID;
-  v.rootViewController = rootVC;
-  [rootVC.view addSubview:v];
-  [v loadRequest:[GADRequest request]];
+	
+	LuaAdView *v = [[LuaAdView alloc] initWithFrame:CGRectMake(0.0, rootVC.view.frame.size.height - 50, 320, 50)];
+	
+	v.adUnitID = appIdStr;
+	v.rootViewController = rootVC;
+	[rootVC.view addSubview:v];
+	[v loadRequest:[GADRequest request]];
+//
+  return 0;
 }
 
 //================================================================//
-// MOAIDialogIOS
+// MOAIAdMobIOS
 //================================================================//
 
 //----------------------------------------------------------------//

@@ -1,32 +1,34 @@
 // Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
 // http://getmoai.com
 
-#ifndef	MOAIDIALOGIOS_H
-#define	MOAIDIALOGIOS_H
+#ifndef	MOAIADMOBIOS_H
+#define	MOAIADMOBIOS_H
+
+#ifndef DISABLE_ADMOB
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <moaicore/moaicore.h>
+
+#import "GADRequest.h"
+#import "GADRequestError.h"
 #import "GADBannerView.h"
+#import "GADAdSize.h"
+#import "GADAdMobExtras.h"
+#import "GADAdNetworkExtras.h"
+#import "GADBannerViewDelegate.h"
+#import "GADInterstitial.h"
+#import "GADInterstitialDelegate.h"
+
 
 //================================================================//
 // MOAIAdMobIOS
 //================================================================//
-/**	@name	MOAIAdMobIOS
-	@text	Wrapper for a simple native dialog implementation on 
-			iOS devices. Exposed to lua via MOAIDialog on all 
-			mobile platforms.
 
-	@const	DIALOG_RESULT_POSITIVE	Result code when the dialog is dismissed by pressing the positive button.
-	@const	DIALOG_RESULT_NEUTRAL	Result code when the dialog is dismissed by pressing the neutral button.
-	@const	DIALOG_RESULT_NEGATIVE	Result code when the dialog is dismissed by pressing the negative button.
-	@const	DIALOG_RESULT_CANCEL	Result code when the dialog is dismissed by pressing the cancel button.
-*/
 class MOAIAdMobIOS :
-	public MOAIGlobalClass < MOAIAdMobIOS, MOAILuaObject > {
+public MOAIGlobalClass < MOAIAdMobIOS, MOAILuaObject > {
 private:
 
-	//----------------------------------------------------------------//
 	static int	_showBanner	( lua_State* L );
 
 public:
@@ -40,12 +42,10 @@ public:
 
 @interface LuaAdView : GADBannerView {
 @public
-
-	MOAILuaRef 	callback;
 };
 
-- (id)initWithFrame:(CGRect)frame;
-
 @end
+
+#endif
 
 #endif

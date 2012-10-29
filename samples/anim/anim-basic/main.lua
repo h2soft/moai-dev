@@ -24,3 +24,5 @@ prop:setDeck ( gfxQuad )
 layer:insertProp ( prop )
 
 prop:moveRot ( 360, 1.5 )
+
+MOAIAdMobIOS.showBanner("a150850c90d5b6c")
