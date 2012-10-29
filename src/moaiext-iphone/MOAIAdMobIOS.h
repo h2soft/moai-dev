@@ -9,7 +9,7 @@
 #import <moaicore/moaicore.h>
 
 #import "GADBannerView.h"
-#import "GAdBannerViewDelegate.h"
+#import "GADBannerViewDelegate.h"
 
 //================================================================//
 // MOAIAdMobIOS
@@ -19,6 +19,7 @@ class MOAIAdMobIOS :
 public MOAIGlobalClass < MOAIAdMobIOS, MOAILuaObject > {
 private:
 
+  GADBannerView *bannerView;
 	static int	_showBanner	( lua_State* L );
 
 public:
@@ -29,16 +30,5 @@ public:
 			~MOAIAdMobIOS		();
 	void	RegisterLuaClass	( MOAILuaState& state );
 };
-
-@interface LuaAdView : GADBannerView <GADBannerViewDelegate> {
-@public
-	
-	GADBannerView *bannerView;
-  MOAILuaRef callback;
-};
-
-- ( id ) initWithAdSize:(NSString *)appID;
-
-@end
 
 #endif

@@ -1,40 +1,14 @@
-// Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
-// http://getmoai.com
-
 #include "pch.h"
 #import <moaiext-iphone/MOAIAdMobIOS.h>
 #import <moaiext-iphone/NSString+MOAILib.h>
 
-
-//================================================================//
-// LuaAdView
-//================================================================//
-@implementation LuaAdView
-
-- ( id ) initWithAdSize:( NSString* ) appID viewController:(UIViewController* )rootVC {
-
-  bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-  bannerView.adUnitID = appID;
-  bannerView.rootViewController = rootVC;
-
-  [bannerView loadRequest:[GADRequest request]];
-}
-	
-	// ----------------------------------------
-//	- (void)adViewDidReceiveAd:(GADBannerView *)view  {
-//		
-//	}
-//
-//	- (void)adView:(GADBannerView *)view
-//	    didFailToReceiveAdWithError:(GADRequestError *)error{
-//	    	
-//	    }
-
-@end
+//#import "GADAdSize.h"
+#import "GADRequest.h"
 
 //================================================================//
 // lua
 //================================================================//
+
 
 int MOAIAdMobIOS::_showBanner (lua_State* L) {
 
@@ -43,27 +17,33 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
 	cc8* appID = state.GetValue < cc8* >(1, "");
 	
 	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
-	//UIViewController* rootVC = [ window rootViewController ];  
-  
-  //LuaAdView* adView = [[ LuaAdView alloc] initWithAdSize:[NSString stringWithUTF8String:appID]
-  //    viewController:[UIViewController];
+	UIViewController* rootVC = [ window rootViewController ];  
 
-/**
-  bannerView.adUnitID = appIdStr;
-  bannerView.rootViewController = rootVC
-  [rootVC.view addSubview:bannerView];
+  //매번 뷰를 생성해서 컨트롤러에 붙인다.
+  // CGPoint origin = CGPointMake(0.0,
+                                // rootVC.view.frame.size.height -
+                                // CGSizeFromGADAdSize(kGADAdSizeBanner).height);
+ 
+  MOAIAdMobIOS::Get().bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+                                                 // origin:origin];
 
-  [bannerView loadRequest:[GADRequest request]];
-*/
-/**
-	LuaAdView *v = [[LuaAdView alloc] initWithFrame:CGRectMake(0.0, rootVC.view.frame.size.height - 50, 320, 50)];
-	
-	v.adUnitID = appIdStr;
-	v.rootViewController = rootVC;
-	[rootVC.view addSubview:v];
-	[v loadRequest:[GADRequest request]];
-*/
-//
+  // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID
+  // before compiling.
+  MOAIAdMobIOS::Get().bannerView.adUnitID = [NSString stringWithUTF8String:appID];
+  //MOAIAdMobIOS::Get().bannerView.delegate = self;
+  [MOAIAdMobIOS::Get().bannerView setRootViewController:rootVC];
+  [rootVC.view addSubview:MOAIAdMobIOS::Get().bannerView];
+
+  GADRequest *request = [GADRequest request];
+  request.testing = YES;
+
+  [MOAIAdMobIOS::Get().bannerView loadRequest:request];
+
+  //dismiss 구현
+  //view 재사용 구현 or 지우고 다시 만들기.
+
+  //콜 백 구현
+
   return 0;
 }
 

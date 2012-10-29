@@ -41,6 +41,9 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		6630C511151005BB00F2F031 /* libmoai-ios-facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6676D5D115100458004EA27A /* libmoai-ios-facebook.a */; };
 		6676D5D415100473004EA27A /* libfacebook_ios_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */; };
+		AA22C7D5163E84ED003CC12F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22C7D4163E84ED003CC12F /* AdSupport.framework */; };
+		AA22C7DB163E854F003CC12F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA22C7DA163E854F003CC12F /* MessageUI.framework */; };
+		AA976F4E163E7F8700B6EC25 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA976F4D163E7F8700B6EC25 /* libGoogleAdMobAds.a */; };
 		AAAE550115FF6A6E0012A274 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAE550015FF6A6E0012A274 /* libFlurry.a */; };
 		CD464CE0147259EA00501E4E /* libmoai-ios-zlcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD04AF1214725736009C20E5 /* libmoai-ios-zlcore.a */; };
 		CD508A1A155E3AF90002FC3B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CC904F13B3C1B700B2724C /* Icon-72.png */; };
@@ -728,6 +731,9 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* MoaiSample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoaiSample_Prefix.pch; sourceTree = "<group>"; };
 		6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook_ios_sdk.a; path = "../../3rdparty/facebookiOS/lib/facebook-ios-sdk/libfacebook_ios_sdk.a"; sourceTree = "<group>"; };
+		AA22C7D4163E84ED003CC12F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		AA22C7DA163E854F003CC12F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AA976F4D163E7F8700B6EC25 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		AAAE550015FF6A6E0012A274 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = "../../3rdparty/flurry-ios/libFlurry.a"; sourceTree = "<group>"; };
 		CD508AA2155E3AF90002FC3B /* moai-fmod-ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "moai-fmod-ex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7C73AC13B95516006CFA19 /* ParticlePresets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticlePresets.cpp; path = ../../src/hosts/ParticlePresets.cpp; sourceTree = SOURCE_ROOT; };
@@ -834,6 +840,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA22C7DB163E854F003CC12F /* MessageUI.framework in Frameworks */,
+				AA22C7D5163E84ED003CC12F /* AdSupport.framework in Frameworks */,
 				AAAE550115FF6A6E0012A274 /* libFlurry.a in Frameworks */,
 				E92D48D2153CAE6F00CB1E8A /* libCrittercism_v3_1_5.a in Frameworks */,
 				6676D5D415100473004EA27A /* libfacebook_ios_sdk.a in Frameworks */,
@@ -858,6 +866,7 @@
 				03CC911C13B3C49400B2724C /* SystemConfiguration.framework in Frameworks */,
 				07EF3E44147BAAA5006CFDCE /* Twitter.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				AA976F4E163E7F8700B6EC25 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,7 +938,7 @@
 			children = (
 				03CC90BD13B3C39D00B2724C /* libmoai-ios.a */,
 				03CC90BF13B3C39D00B2724C /* libmoai-ios-3rdparty.a */,
-				FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty-decrypter.a */,
+				FE0883A61611A69500F72A45 /* libmoai-ios-3rdparty-decrypter.a */,
 				6676D5CF15100458004EA27A /* libmoai-ios-adcolony.a */,
 				E92D47E3153CA6FC00CB1E8A /* libmoai-ios-chartboost.a */,
 				6676D5D115100458004EA27A /* libmoai-ios-facebook.a */,
@@ -1035,6 +1044,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA22C7DA163E854F003CC12F /* MessageUI.framework */,
+				AA22C7D4163E84ED003CC12F /* AdSupport.framework */,
+				AA976F4D163E7F8700B6EC25 /* libGoogleAdMobAds.a */,
 				AAAE550015FF6A6E0012A274 /* libFlurry.a */,
 				E92D48D1153CAE6F00CB1E8A /* libCrittercism_v3_1_5.a */,
 				6676D5D315100473004EA27A /* libfacebook_ios_sdk.a */,
@@ -1410,7 +1422,7 @@
 			remoteRef = E92D47E2153CA6FC00CB1E8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty-decrypter.a */ = {
+		FE0883A61611A69500F72A45 /* libmoai-ios-3rdparty-decrypter.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libmoai-ios-3rdparty-decrypter.a";
@@ -1952,6 +1964,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = moai;
 				VALID_ARCHS = "i386 armv6 armv7";
@@ -1965,6 +1978,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry-ios\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = moai;
 				VALID_ARCHS = "i386 armv6 armv7";
