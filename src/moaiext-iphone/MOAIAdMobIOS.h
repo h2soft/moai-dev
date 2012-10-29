@@ -19,7 +19,6 @@ class MOAIAdMobIOS :
 public MOAIGlobalClass < MOAIAdMobIOS, MOAILuaObject > {
 private:
 
-  GADBannerView *bannerView;
 	static int	_showBanner	( lua_State* L );
 
 public:
@@ -33,6 +32,8 @@ public:
 
 @interface LuaAdView : GADBannerView <GADBannerViewDelegate> {
 @public
+	
+	GADBannerView *bannerView;
   MOAILuaRef callback;
 };
 

@@ -929,7 +929,7 @@
 			children = (
 				03CC90BD13B3C39D00B2724C /* libmoai-ios.a */,
 				03CC90BF13B3C39D00B2724C /* libmoai-ios-3rdparty.a */,
-				FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty copy.a */,
+				FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty-decrypter.a */,
 				6676D5CF15100458004EA27A /* libmoai-ios-adcolony.a */,
 				E92D47E3153CA6FC00CB1E8A /* libmoai-ios-chartboost.a */,
 				6676D5D115100458004EA27A /* libmoai-ios-facebook.a */,
@@ -1410,10 +1410,10 @@
 			remoteRef = E92D47E2153CA6FC00CB1E8A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty copy.a */ = {
+		FE0883A61611A69500F72A45 /* liblibmoai-ios-3rdparty-decrypter.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "liblibmoai-ios-3rdparty-decrypter.a";
+			path = "libmoai-ios-3rdparty-decrypter.a";
 			remoteRef = FE0883A51611A69500F72A45 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

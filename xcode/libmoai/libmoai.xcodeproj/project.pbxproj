@@ -1607,6 +1607,18 @@
 		AA0601D815FF6E2E00100302 /* MOAIFlurryIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */; };
 		AA0601D915FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */; };
 		AA0601DA15FF6E2E00100302 /* MOAIFlurryIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */; };
+		AABB6770163E6F810041B131 /* GADAdMobExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB6766163E6F810041B131 /* GADAdMobExtras.h */; };
+		AABB6771163E6F810041B131 /* GADAdNetworkExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB6767163E6F810041B131 /* GADAdNetworkExtras.h */; };
+		AABB6772163E6F810041B131 /* GADAdSize.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB6768163E6F810041B131 /* GADAdSize.h */; };
+		AABB6773163E6F810041B131 /* GADBannerView.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB6769163E6F810041B131 /* GADBannerView.h */; };
+		AABB6774163E6F810041B131 /* GADBannerViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB676A163E6F810041B131 /* GADBannerViewDelegate.h */; };
+		AABB6775163E6F810041B131 /* GADInterstitial.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB676B163E6F810041B131 /* GADInterstitial.h */; };
+		AABB6776163E6F810041B131 /* GADInterstitialDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB676C163E6F810041B131 /* GADInterstitialDelegate.h */; };
+		AABB6777163E6F810041B131 /* GADRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB676D163E6F810041B131 /* GADRequest.h */; };
+		AABB6778163E6F810041B131 /* GADRequestError.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB676E163E6F810041B131 /* GADRequestError.h */; };
+		AABB6779163E6F810041B131 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABB676F163E6F810041B131 /* libGoogleAdMobAds.a */; };
+		AABB677D163E6F920041B131 /* MOAIAdMobIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB677B163E6F920041B131 /* MOAIAdMobIOS.h */; };
+		AABB677E163E6F920041B131 /* MOAIAdMobIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = AABB677C163E6F920041B131 /* MOAIAdMobIOS.mm */; };
 		C359A149143A81BA005E7829 /* RAudioBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = C359A148143A81BA005E7829 /* RAudioBuffer.h */; };
 		C37D422213B16930009600BB /* BufferedAudioSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C37D421E13B1692F009600BB /* BufferedAudioSource.h */; };
 		C37D422413B16930009600BB /* BufferedAudioSourceThread.h in Headers */ = {isa = PBXBuildFile; fileRef = C37D422013B16930009600BB /* BufferedAudioSourceThread.h */; };
@@ -5675,6 +5687,18 @@
 		66DD89261540E7AD0008E0DB /* MOAIOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOAIOpenUDID.h; sourceTree = "<group>"; };
 		AA0601D515FF6E2E00100302 /* MOAIFlurryIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOAIFlurryIOS.h; path = "moaiext-iphone/MOAIFlurryIOS.h"; sourceTree = "<group>"; };
 		AA0601D615FF6E2E00100302 /* MOAIFlurryIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIFlurryIOS.mm; path = "moaiext-iphone/MOAIFlurryIOS.mm"; sourceTree = "<group>"; };
+		AABB6766163E6F810041B131 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		AABB6767163E6F810041B131 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		AABB6768163E6F810041B131 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		AABB6769163E6F810041B131 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		AABB676A163E6F810041B131 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		AABB676B163E6F810041B131 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		AABB676C163E6F810041B131 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		AABB676D163E6F810041B131 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		AABB676E163E6F810041B131 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		AABB676F163E6F810041B131 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		AABB677B163E6F920041B131 /* MOAIAdMobIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MOAIAdMobIOS.h; path = "moaiext-iphone/MOAIAdMobIOS.h"; sourceTree = "<group>"; };
+		AABB677C163E6F920041B131 /* MOAIAdMobIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MOAIAdMobIOS.mm; path = "moaiext-iphone/MOAIAdMobIOS.mm"; sourceTree = "<group>"; };
 		C359A148143A81BA005E7829 /* RAudioBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAudioBuffer.h; path = ../../3rdparty/untz/src/RAudioBuffer.h; sourceTree = "<group>"; };
 		C37D421D13B1692F009600BB /* BufferedAudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BufferedAudioSource.cpp; path = ../../3rdparty/untz/src/BufferedAudioSource.cpp; sourceTree = "<group>"; };
 		C37D421E13B1692F009600BB /* BufferedAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BufferedAudioSource.h; path = ../../3rdparty/untz/src/BufferedAudioSource.h; sourceTree = "<group>"; };
@@ -7075,6 +7099,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABB6779163E6F810041B131 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7190,6 +7215,7 @@
 		032409EE13564CAF000ADC60 /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				AABB6765163E6F810041B131 /* adMob-ios */,
 				FE087E291611A19100F72A45 /* luadecrypter */,
 				FE8E77DC160969F90050B68F /* flurry-ios */,
 				66A643AD15462EBF009796A3 /* c-ares-1.7.5 */,
@@ -8411,6 +8437,24 @@
 			path = ../../3rdparty/openUDID;
 			sourceTree = "<group>";
 		};
+		AABB6765163E6F810041B131 /* adMob-ios */ = {
+			isa = PBXGroup;
+			children = (
+				AABB6766163E6F810041B131 /* GADAdMobExtras.h */,
+				AABB6767163E6F810041B131 /* GADAdNetworkExtras.h */,
+				AABB6768163E6F810041B131 /* GADAdSize.h */,
+				AABB6769163E6F810041B131 /* GADBannerView.h */,
+				AABB676A163E6F810041B131 /* GADBannerViewDelegate.h */,
+				AABB676B163E6F810041B131 /* GADInterstitial.h */,
+				AABB676C163E6F810041B131 /* GADInterstitialDelegate.h */,
+				AABB676D163E6F810041B131 /* GADRequest.h */,
+				AABB676E163E6F810041B131 /* GADRequestError.h */,
+				AABB676F163E6F810041B131 /* libGoogleAdMobAds.a */,
+			);
+			name = "adMob-ios";
+			path = "../../3rdparty/adMob-ios";
+			sourceTree = "<group>";
+		};
 		CD04AEB6147256B0009C20E5 /* zlib */ = {
 			isa = PBXGroup;
 			children = (
@@ -9398,6 +9442,8 @@
 		CD524476135982480086DA15 /* moaiext-iphone */ = {
 			isa = PBXGroup;
 			children = (
+				AABB677B163E6F920041B131 /* MOAIAdMobIOS.h */,
+				AABB677C163E6F920041B131 /* MOAIAdMobIOS.mm */,
 				CDF2C627151B14DD0009D47D /* aku */,
 				CDF2C626151B14C10009D47D /* reachability */,
 				CDF2C625151B14970009D47D /* util */,
@@ -12269,6 +12315,16 @@
 				669E287815914B320037E24C /* RiffFile.h in Headers */,
 				669E287A15914B320037E24C /* WaveFile.h in Headers */,
 				669E287C15914B320037E24C /* WaveFileAudioSource.h in Headers */,
+				AABB6770163E6F810041B131 /* GADAdMobExtras.h in Headers */,
+				AABB6771163E6F810041B131 /* GADAdNetworkExtras.h in Headers */,
+				AABB6772163E6F810041B131 /* GADAdSize.h in Headers */,
+				AABB6773163E6F810041B131 /* GADBannerView.h in Headers */,
+				AABB6774163E6F810041B131 /* GADBannerViewDelegate.h in Headers */,
+				AABB6775163E6F810041B131 /* GADInterstitial.h in Headers */,
+				AABB6776163E6F810041B131 /* GADInterstitialDelegate.h in Headers */,
+				AABB6777163E6F810041B131 /* GADRequest.h in Headers */,
+				AABB6778163E6F810041B131 /* GADRequestError.h in Headers */,
+				AABB677D163E6F920041B131 /* MOAIAdMobIOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15140,6 +15196,7 @@
 				66C572A91575714B00A486AB /* USBase64Encoder.cpp in Sources */,
 				66C572AF1575717000A486AB /* MOAIGridDeck2D.cpp in Sources */,
 				E9DE4582157EA38800630A7D /* MOAIMoviePlayerIOS.mm in Sources */,
+				AABB677E163E6F920041B131 /* MOAIAdMobIOS.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16802,6 +16859,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+					"\"$(SRCROOT)/../../3rdparty/adMob-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
@@ -16838,6 +16896,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+					"\"$(SRCROOT)/../../3rdparty/adMob-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
@@ -18281,6 +18340,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+					"\"$(SRCROOT)/../../3rdparty/adMob-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;
@@ -18865,6 +18925,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../3rdparty/flurry\"",
+					"\"$(SRCROOT)/../../3rdparty/adMob-ios\"",
 				);
 				PRODUCT_NAME = "moai-ios";
 				SDKROOT = iphoneos;

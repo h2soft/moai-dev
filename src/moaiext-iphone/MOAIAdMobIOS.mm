@@ -45,8 +45,8 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
 	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
 	//UIViewController* rootVC = [ window rootViewController ];  
   
-  LuaAdView* adView = [[ LuaAdView alloc] initWithAdSize:[NSString stringWithUTF8String:appID]
-      viewController:[UIViewController];
+  //LuaAdView* adView = [[ LuaAdView alloc] initWithAdSize:[NSString stringWithUTF8String:appID]
+  //    viewController:[UIViewController];
 
 /**
   bannerView.adUnitID = appIdStr;
