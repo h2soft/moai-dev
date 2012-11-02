@@ -2,7 +2,7 @@
 #import <moaiext-iphone/MOAIAdMobIOS.h>
 #import <moaiext-iphone/NSString+MOAILib.h>
 
-//#import "GADAdSize.h"
+#import "GADAdSize.h"
 #import "GADRequest.h"
 
 //================================================================//
@@ -15,17 +15,18 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
 	MOAILuaState state ( L );
 	
 	cc8* appID = state.GetValue < cc8* >(1, "");
+  int x = state.GetValue < int >(2, 0);
+  int y = state.GetValue < int >(3, 0);
 	
 	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
 	UIViewController* rootVC = [ window rootViewController ];  
 
   //매번 뷰를 생성해서 컨트롤러에 붙인다.
-  // CGPoint origin = CGPointMake(0.0,
-                                // rootVC.view.frame.size.height -
-                                // CGSizeFromGADAdSize(kGADAdSizeBanner).height);
+   CGPoint origin = CGPointMake((float)x, (float)y);
  
-  MOAIAdMobIOS::Get().bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-                                                 // origin:origin];
+  MOAIAdMobIOS::Get().bannerView = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeLeaderboard
+                                                  origin:origin]
+                                      autorelease];
 
   // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID
   // before compiling.
