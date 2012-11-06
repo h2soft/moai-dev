@@ -15,18 +15,41 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
 	MOAILuaState state ( L );
 	
 	cc8* appID = state.GetValue < cc8* >(1, "");
-  int x = state.GetValue < int >(2, 0);
-  int y = state.GetValue < int >(3, 0);
+	cc8* align = state.GetValue < cc8* >(2, "Top");
+	bool testing = state.GetValue < bool > (3, false);
+	
+	NSString* alignment = [NSString stringWithUTF8String:align];
 	
 	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
-	UIViewController* rootVC = [ window rootViewController ];  
+	UIViewController* rootVC = [ window rootViewController ];
 
-  //매번 뷰를 생성해서 컨트롤러에 붙인다.
-   CGPoint origin = CGPointMake((float)x, (float)y);
- 
-  MOAIAdMobIOS::Get().bannerView = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeLeaderboard
-                                                  origin:origin]
-                                      autorelease];
+	int x = rootVC.view.frame.size.height/2;
+	int y = 0;
+
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		x = x - 728/2;
+		if ([alignment isEqualToString:@"Center"]) {
+			y = rootVC.view.frame.size.width/2 - 90/2;
+		}
+		else if ([alignment isEqualToString:@"Bottom"]) {
+			y = rootVC.view.frame.size.width - 90;
+		}
+		CGPoint origin = CGPointMake((float)x, (float)y);
+		MOAIAdMobIOS::Get().bannerView = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeLeaderboard origin:origin] autorelease]; // 728 * 90
+	}
+	else {
+		x = x - 320/2;
+		if ([alignment isEqualToString:@"Center"]) {
+			y = rootVC.view.frame.size.width/2 - 50/2;
+		}
+		else if ([alignment isEqualToString:@"Bottom"]) {
+			y = rootVC.view.frame.size.width - 50;
+		}
+		CGPoint origin = CGPointMake((float)x, (float)y);
+		MOAIAdMobIOS::Get().bannerView = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin] autorelease];	//320 * 50
+	}
+
+
 
   // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID
   // before compiling.
@@ -36,16 +59,18 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
   [rootVC.view addSubview:MOAIAdMobIOS::Get().bannerView];
 
   GADRequest *request = [GADRequest request];
-  request.testing = YES;
+	request.testing = testing;
 
   [MOAIAdMobIOS::Get().bannerView loadRequest:request];
 
-  //dismiss 구현
   //view 재사용 구현 or 지우고 다시 만들기.
-
   //콜 백 구현
-
   return 0;
+}
+
+int MOAIAdMobIOS::_dismiss(lua_State* L) {
+	[MOAIAdMobIOS::Get().bannerView removeFromSuperview];
+	return 0;
 }
 
 //================================================================//
@@ -67,6 +92,7 @@ void MOAIAdMobIOS::RegisterLuaClass ( MOAILuaState& state ) {
 	
 	luaL_Reg regTable [] = {
 		{ "showBanner",	_showBanner },
+		{ "dismiss",	_dismiss },
 		{ NULL, NULL }
 	};
 

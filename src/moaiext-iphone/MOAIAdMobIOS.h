@@ -20,7 +20,8 @@ public MOAIGlobalClass < MOAIAdMobIOS, MOAILuaObject > {
 private:
 
   GADBannerView *bannerView;
-	static int	_showBanner	( lua_State* L );
+	static int _showBanner	( lua_State* L );
+  static int _dismiss( lua_State* L );
 
 public:
 	

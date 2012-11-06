@@ -16,4 +16,16 @@ prop = MOAIProp2D.new ()
 prop:setDeck ( gfxQuad )
 layer:insertProp ( prop )
 
-MOAIAdMobIOS.showBanner("a150850c90d5b6c", 30, 100)
+MOAIAdMobIOS.showBanner("a150850c90d5b6c")
+MOAIAdMobIOS.showBanner("a150850c90d5b6c", "Center")
+MOAIAdMobIOS.showBanner("a150850c90d5b6c", "Bottom")
+
+--[[
+timer = MOAITimer.new()
+timer:setSpan(10)
+timer:setMode(MOAITimer.NORMAL)
+timer:setListener(MOAITimer.NORMAL, function()
+  MOAIAdMobIOS.dismiss()
+end)
+timer:start()
+]]
