@@ -9,7 +9,7 @@
 	set -e
 	
 	# check for command line switches
-	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--disable-flurry] [--disable-tstore] [--disable-kakao]"
+	usage="usage: $0 [-v] [-i thumb | arm] [-a all | armeabi | armeabi-v7a] [-l appPlatform] [--use-fmod true | false] [--use-untz true | false] [--disable-adcolony] [--disable-billing] [--disable-chartboost] [--disable-crittercism] [--disable-facebook] [--disable-push] [--disable-tapjoy] [--disable-flurry] [--disable-tstore] [--disable-kakao] [--disable-admob]"
 	verbose=
 	arm_mode="arm"
 	arm_arch="armeabi-v7a"
@@ -26,6 +26,7 @@
 	flurry_flags=
 	tstore_flags=
   kakao_flags= 
+	admob_flags=
 	
 	while [ $# -gt 0 ];	do
 	    case "$1" in
@@ -45,6 +46,7 @@
 			--disable-flurry)  flurry_flags="-DDISABLE_FLURRY";;
 			--disable-tstore)  tstore_flags="-DDISABLE_TSTORE";;
 			--disable-kakao)  kakao_flags="-DDISABLE_KAKAO";;
+			--disable-admob)  kakao_flags="-DDISABLE_ADMOB";;
 			-*)
 		    	echo >&2 \
 		    		$usage
@@ -105,6 +107,7 @@
 		existing_flurry_flags=$( sed -n '13p' libs/package.txt )
 		existing_tstore_flags=$( sed -n '14p' libs/package.txt )
 		existing_kakao_flags=$( sed -n '15p' libs/package.txt )
+		existing_admob_flags=$( sed -n '16p' libs/package.txt )
 
 		if [ x"$existing_arm_mode" != x"$arm_mode" ]; then
 			should_clean=true
@@ -163,6 +166,10 @@
 		fi		
 
 		if [ x"$existing_kakao_flags" != x"$kakao_flags" ]; then
+			should_clean=true
+		fi
+		
+		if [ x"$existing_admob_flags" != x"$admob_flags" ]; then
 			should_clean=true
 		fi		
 	fi
@@ -230,6 +237,13 @@
 	if [ x"$kakao_flags" == x ]; then
 		echo "KakaoLink will be enabled"
 	fi 
+	
+	if [ x"$admob_flags" != x ]; then
+		echo "AdMob will be disabled"
+	fi 
+	if [ x"$admob_flags" == x ]; then
+		echo "AdMob will be enabled"
+	fi 
 
 	pushd jni > /dev/null
 		cp -f AppPlatform.mk AppPlatformDefined.mk
@@ -256,6 +270,7 @@
 		sed -i.backup s%@DISABLE_FLURRY@%"$flurry_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@DISABLE_TSTORE@%"$tstore_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@DISABLE_KAKAO@%"$kakao_flags"%g OptionalComponentsDefined.mk
+		sed -i.backup s%@DISABLE_ADMOB@%"$admob_flags"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_FMOD@%"$use_fmod"%g OptionalComponentsDefined.mk
 		sed -i.backup s%@USE_UNTZ@%"$use_untz"%g OptionalComponentsDefined.mk
 		rm -f OptionalComponentsDefined.mk.backup
@@ -296,3 +311,4 @@
 	echo "$flurry_flags" >> libs/package.txt
 	echo "$tstore_flags" >> libs/package.txt
 	echo "$kakao_flags" >> libs/package.txt
+	echo "$admob_flags" >> libs/package.txt

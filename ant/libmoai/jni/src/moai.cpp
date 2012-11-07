@@ -333,11 +333,16 @@
 		REGISTER_LUA_CLASS ( MOAITstoreBilling );
 #endif
 
-#ifndef DISABLE_TSTORE
+#ifndef DISABLE_KAKAO
 		MOAIKakaoLink::Affirm ();
 		REGISTER_LUA_CLASS ( MOAIKakaoLink );
 #endif
 
+#ifndef DISABLE_ADMOB
+		MOAIKakaoLink::Affirm ();
+		REGISTER_LUA_CLASS ( MOAIAdMobAndroid );
+#endif
+		
 		AKURunBytecode ( moai_lua, moai_lua_SIZE );
 
 		inputQueue = new LockingQueue < InputEvent > ();

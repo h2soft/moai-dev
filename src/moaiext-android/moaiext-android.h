@@ -14,3 +14,4 @@
 #include <moaiext-android/MOAIFlurryAndroid.h>
 #include <moaiext-android/MOAITstoreBilling.h>
 #include <moaiext-android/MOAIKakaoLink.h>
+#include <moaiext-android/MOAIAdMobAndroid.h>
