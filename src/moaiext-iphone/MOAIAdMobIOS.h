@@ -1,5 +1,8 @@
-// Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
-// http://getmoai.com
+//----------------------------------------------------------------//
+// Copyright (c) 2012 H2SOFT Co., Ltd
+// All Rights Reserved. 
+// http://www.h2soft.kr
+//----------------------------------------------------------------//
 
 #ifndef	MOAIADMOBIOS_H
 #define	MOAIADMOBIOS_H
