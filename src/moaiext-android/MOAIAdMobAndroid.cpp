@@ -66,13 +66,13 @@ int MOAIAdMobAndroid::_dismiss ( lua_State* L ) {
 		USLog::Print ( "MOAIAdMobAndroid: Unable to find java class %s", "com/ziplinegames/moai/MoaiAdMob" );
 	} else {
 	
-		jmethodID dismissBanner = env->GetStaticMethodID ( admob, "showBanner", "()V" );
-		if ( dismissBanner == NULL ) {
+		jmethodID dismiss = env->GetStaticMethodID ( admob, "dismiss", "()V" );
+		if ( dismiss == NULL ) {
 	
-			USLog::Print ( "MOAIAdMobAndroid: Unable to find static java method %s", "dismissBanner" );
+			USLog::Print ( "MOAIAdMobAndroid: Unable to find static java method %s", "dismiss" );
 		} else {
 	
-			env->CallStaticVoidMethod ( admob, dismissBanner );		
+			env->CallStaticVoidMethod ( admob, dismiss );		
 		}
 	}
 	return 0;

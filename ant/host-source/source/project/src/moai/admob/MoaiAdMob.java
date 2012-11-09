@@ -7,9 +7,10 @@ package com.ziplinegames.moai;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.Gravity;
+import android.view.ViewManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import android.view.Gravity;
 
 import com.google.ads.*;
 
@@ -20,7 +21,7 @@ import com.google.ads.*;
 public class MoaiAdMob {
 
 	private static Activity sActivity = null;
-	private static AdView adView;
+	private static AdView sAdView;
 	
 	//----------------------------------------------------------------//
 	public static void onCreate ( Activity activity ) {
@@ -39,20 +40,22 @@ public class MoaiAdMob {
 	
 	//----------------------------------------------------------------//	
 	public static void showBanner ( String adUnitId ) {
-		FrameLayout parent = ( FrameLayout ) sActivity.findViewById(android.R.id.content);
+		FrameLayout parent = ( FrameLayout ) sActivity.findViewById( android.R.id.content );
 		
-		adView = new AdView ( sActivity, AdSize.BANNER, adUnitId );
-		FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+		sAdView = new AdView ( sActivity, AdSize.BANNER, adUnitId );
+		FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams (
 				                FrameLayout.LayoutParams.WRAP_CONTENT,
 				                FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL );
-		parent.addView ( adView, layoutParams );
-		adView.loadAd ( new AdRequest () );
+		parent.addView ( sAdView, layoutParams );
+		sAdView.loadAd ( new AdRequest () );
 	}
 	
 	//----------------------------------------------------------------//	
 	public static void dismiss ( ) {
-		if ( adView != null ) {
-			adView.destroy();
+		if ( sAdView != null ) {
+			sAdView.destroy ( );
+			(( ViewManager ) sAdView.getParent ()).removeView ( sAdView );
+			sAdView = null;
 		}
 	}
 }

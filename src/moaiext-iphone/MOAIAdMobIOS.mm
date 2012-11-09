@@ -21,7 +21,7 @@ int MOAIAdMobIOS::_showBanner (lua_State* L) {
 	MOAILuaState state ( L );
 	
 	cc8* appID = state.GetValue < cc8* >(1, "");
-	bool testing = state.GetValue < bool > (3, false);
+	bool testing = state.GetValue < bool > (2, false);
 	
 	UIWindow* window = [[ UIApplication sharedApplication ] keyWindow ];
 	UIViewController* rootVC = [ window rootViewController ];
