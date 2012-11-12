@@ -19,6 +19,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -31,6 +34,14 @@ import java.util.Locale;
 // Moai
 import com.ziplinegames.moai.*;
 
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import java.net.URI;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.net.Uri;
+import android.provider.Settings.Secure;
+
 //================================================================//
 // MoaiActivity
 //================================================================//
@@ -38,12 +49,16 @@ public class MoaiActivity extends Activity {
 
 	private AccelerometerEventListener		mAccelerometerListener = null;
 	private Sensor 							mAccelerometerSensor = null;
+	private Sensor							mMagnetometerSensor = null;
+	private LocationEventListener			mLocationListener = null;
 	private ConnectivityBroadcastReceiver 	mConnectivityReceiver = null;
 	private MoaiView						mMoaiView = null;
 	private SensorManager 					mSensorManager = null;
+	private LocationManager					mLocationManager = null;
 	private boolean							mWaitingToResume = false;
 	private boolean							mWindowFocusLost = false;
-
+	private float []						mAccelerometerData = null;
+	
 	//----------------------------------------------------------------//
 	static {
 		
@@ -64,6 +79,8 @@ public class MoaiActivity extends Activity {
 
 		MoaiLog.i ( "MoaiActivity onCreate: activity CREATED" );
 
+		mAccelerometerData = new float[3];
+		
     	super.onCreate ( savedInstanceState );
 		Moai.onCreate ( this );
 		
@@ -72,7 +89,7 @@ public class MoaiActivity extends Activity {
 		
         requestWindowFeature ( Window.FEATURE_NO_TITLE );
 	    getWindow ().addFlags ( WindowManager.LayoutParams.FLAG_FULLSCREEN );
-	    getWindow ().addFlags ( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON );
+	    //getWindow ().addFlags ( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON );
 
 		try {
 			
@@ -93,25 +110,6 @@ public class MoaiActivity extends Activity {
 			MoaiLog.e ( "MoaiActivity onCreate: Unable to set the document directory" );
 		}
 
-/*
-String disp_lang = Locale.getDefault().getDisplayLanguage();
-// 값: 한국어.
-// getDisplayLanguage 괄호 안 Locale을 적어주면 그에 맞는 값을 리턴합니다.
-
-String iso_lang  = Locale.getDefault().getLanguage();
-// 값: ko.
-// ISO-639 코드 2자리(소문자)를 리턴합니다. 
-
-    Locale systemLocale = getResources().getConfiguration().locale;
-    MoaiLog.e (systemLocale.getCountry(), systemLocale.getLanguage());
-    Moai.setCountryCode(systemLocale.getCountry());
-    Moai.setLanguageCode(systemLocale.getLanguage());
-    Locale systemLocale = getResources().getConfiguration().locale;
-    MoaiLog.i ("system" + systemLocale.getCountry() + systemLocale.getLanguage());
-
-    MoaiLog.i ("default" + Locale.getDefault().getLanguage() + Locale.getDefault().getCountry());
-**/
-
     Moai.setLanguageCode(Locale.getDefault().getLanguage());
     Moai.setCountryCode(Locale.getDefault().getCountry());
 				
@@ -121,8 +119,11 @@ String iso_lang  = Locale.getDefault().getLanguage();
 	    mMoaiView = new MoaiView ( this, display.getWidth (), display.getHeight (), info.reqGlEsVersion );
 		mSensorManager = ( SensorManager ) getSystemService ( Context.SENSOR_SERVICE );
 
+		mLocationManager = (LocationManager) getSystemService ( Context.LOCATION_SERVICE );
+
 		startConnectivityReceiver ();
-		enableAccelerometerEvents ( false );	
+		enableAccelerometerEvents ( false );
+		enableLocationEvents ( false );
 
 		setContentView ( mMoaiView );
     }
@@ -161,11 +162,16 @@ String iso_lang  = Locale.getDefault().getLanguage();
 			mSensorManager.unregisterListener ( mAccelerometerListener );
 		}
 		
+		if ( mLocationListener != null ) {
+
+			mLocationManager.removeUpdates( mLocationListener );
+		}
+
 		// If we've been paused, then we're assuming we've lost focus. 
 		// This handles the case where the user presses the lock button
 		// very quickly twice, in which case we do not receive the 
 		// expected windows focus events.
-		mWindowFocusLost = true;
+		//mWindowFocusLost = true;
 
 		MoaiLog.i ( "MoaiActivity onPause: PAUSING now" );
 		mMoaiView.pause ( true );
@@ -186,8 +192,15 @@ String iso_lang  = Locale.getDefault().getLanguage();
 		if ( mAccelerometerListener != null ) {
 			
 			mSensorManager.registerListener ( mAccelerometerListener, mAccelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL );
+			mSensorManager.registerListener ( mAccelerometerListener, mMagnetometerSensor, SensorManager.SENSOR_DELAY_NORMAL );
 		}
-		
+
+		if ( mLocationListener != null ) {
+
+			mLocationManager.requestLocationUpdates ( LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener );
+			mLocationManager.requestLocationUpdates ( LocationManager.GPS_PROVIDER, 0, 0, mLocationListener );
+		}
+
 		// If we have not lost Window focus, then resume immediately; 
 		// otherwise, wait to regain focus before we resume. All of 
 		// this nonsense is to prevent audio from playing while the
@@ -242,12 +255,36 @@ String iso_lang  = Locale.getDefault().getLanguage();
 			if ( mAccelerometerSensor == null ) {
 				
 				mAccelerometerSensor = mSensorManager.getDefaultSensor ( Sensor.TYPE_ACCELEROMETER );
+				mMagnetometerSensor = mSensorManager.getDefaultSensor ( Sensor.TYPE_MAGNETIC_FIELD );
 			}
 			
 			if ( mAccelerometerListener == null ) {
 
 				mAccelerometerListener = new AccelerometerEventListener ();
 				mSensorManager.registerListener ( mAccelerometerListener, mAccelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL );
+				mSensorManager.registerListener ( mAccelerometerListener, mMagnetometerSensor, SensorManager.SENSOR_DELAY_NORMAL );
+			}
+		}
+	}
+
+	//----------------------------------------------------------------//
+	private void enableLocationEvents ( boolean enabled ) {
+		
+		if ( !enabled ) {
+			
+			if ( mLocationListener != null ) {
+
+				mLocationManager.removeUpdates( mLocationListener );
+				mLocationListener = null;
+			}
+		} else if ( enabled ) {
+			
+			if ( mLocationListener == null ) {
+
+				mLocationListener = new LocationEventListener ();
+				mLocationManager.requestLocationUpdates ( LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener );
+				mLocationManager.requestLocationUpdates ( LocationManager.GPS_PROVIDER, 0, 0, mLocationListener );
+
 			}
 		}
 	}
@@ -305,6 +342,7 @@ String iso_lang  = Locale.getDefault().getLanguage();
 		// it's time to resume. All of this nonsense is to prevent audio 
 		// from playing while the screen is locked.
 		mWindowFocusLost = !hasFocus;
+	
 		if ( mWaitingToResume && hasFocus ) {
 		
 			mWaitingToResume = false;
@@ -359,22 +397,109 @@ String iso_lang  = Locale.getDefault().getLanguage();
 
 	private class AccelerometerEventListener implements SensorEventListener {
 		
+		private float [] mGravity;
+		private float [] mGeomagnetic;
+		private float mRotationMatrixA [] = new float [ 9 ];
+		private float mRotationMatrixB [] = new float [ 9 ];
+		private float orientation [] = new float [ 3 ];
+
 		//----------------------------------------------------------------//
 		public void onAccuracyChanged ( Sensor sensor, int accuracy ) {
 			
 		}
 
+		// Thanks to NVIDIA for this useful canonical-to-screen orientation function.
+		public void canonicalOrientationToScreenOrientation ( int displayRotation, float[] canVec, float[] screenVec ) { 
+				
+			 final int axisSwap[][] = {
+				 { 1,-1, 1, 0 },   // ROTATION_0
+				 { 1, 1, 0, 1 },   // ROTATION_90
+				 {-1,-1, 1, 0 },   // ROTATION_180
+				 { 1,-1, 0, 1 } }; // ROTATION_270
+
+			 final int[] as = axisSwap[displayRotation];
+			 screenVec[0] = (float)as[0] * canVec[ as[2] ];
+			 screenVec[1] = (float)as[1] * canVec[ as[3] ];
+			 screenVec[2] = canVec[2];
+		}
+		
 		//----------------------------------------------------------------//
 		public void onSensorChanged ( SensorEvent event ) {
 
-			float x = event.values [ 0 ];
-			float y = event.values [ 1 ];
-			float z = event.values [ 2 ];
+			if ( event.sensor.getType () == Sensor.TYPE_ACCELEROMETER ) {
+
+				Display display = (( WindowManager ) getSystemService ( Context.WINDOW_SERVICE )).getDefaultDisplay ();
+                canonicalOrientationToScreenOrientation ( display.getRotation (), event.values, mAccelerometerData );
+                
+                float x = mAccelerometerData [ 0 ];
+                float y = mAccelerometerData [ 1 ];
+                float z = mAccelerometerData [ 2 ];
+                
+				mGravity = mAccelerometerData;
+
+				int deviceId = Moai.InputDevice.INPUT_DEVICE.ordinal ();
+				int sensorId = Moai.InputSensor.SENSOR_LEVEL.ordinal ();
+                
+                // normalize the vector
+                double mag = Math.sqrt ( x * x + y * y + z * z );
+                x = x / ( float ) mag;
+                y = y / ( float ) mag;
+                z = z / ( float ) mag;
+
+				Moai.enqueueLevelEvent ( deviceId, sensorId, x, y, z );
+			}
+			else if ( event.sensor.getType () == Sensor.TYPE_MAGNETIC_FIELD )
+				mGeomagnetic = event.values;
+
+			if ( mGravity != null && mGeomagnetic != null && SensorManager.getRotationMatrix( mRotationMatrixA, null, mGravity, mGeomagnetic ) ) {
+
+				int deviceId = Moai.InputDevice.INPUT_DEVICE.ordinal ();
+				int sensorId = Moai.InputSensor.SENSOR_COMPASS.ordinal ();
+
+				SensorManager.remapCoordinateSystem (
+					mRotationMatrixA,
+					SensorManager.AXIS_X,
+					SensorManager.AXIS_Z,
+					mRotationMatrixB );
+
+				SensorManager.getOrientation ( mRotationMatrixB, orientation );
+				float heading = orientation [0] * 57.2957795f; 
+				if ( heading < 0 ) heading += 360;
+
+				Moai.enqueueCompassEvent ( deviceId, sensorId, heading );
+			}
+		}
+	};
+
+	//================================================================//
+	// LocationEventListener
+	//================================================================//
+
+	private class LocationEventListener implements LocationListener {
+		
+		//----------------------------------------------------------------//
+		public void onLocationChanged ( Location location ) {
+
+			double longitude = location.getLongitude ();
+			double latitude = location.getLatitude ();
+			double altitude = location.getAltitude ();
+			float hAccuracy = location.getAccuracy ();
+			float vAccuracy = location.getAccuracy ();
+			float speed = location.getSpeed ();
 
 			int deviceId = Moai.InputDevice.INPUT_DEVICE.ordinal ();
-			int sensorId = Moai.InputSensor.SENSOR_LEVEL.ordinal ();
+			int sensorId = Moai.InputSensor.SENSOR_LOCATION.ordinal ();
 
-			Moai.enqueueLevelEvent ( deviceId, sensorId, x, y, z );
+			Moai.enqueueLocationEvent ( deviceId, sensorId, longitude, latitude, altitude, hAccuracy, vAccuracy, speed );
 		}
+
+		//----------------------------------------------------------------//
+		public void onStatusChanged ( String provider, int status, Bundle extras ) {}
+
+		//----------------------------------------------------------------//
+		public void onProviderEnabled ( String provider ) {}
+
+		//----------------------------------------------------------------//
+		public void onProviderDisabled ( String provider ) {}
 	};
 }

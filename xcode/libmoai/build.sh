@@ -8,18 +8,13 @@
 
 set -e
 
-# osx_schemes=( "libmoai-osx" "libmoai-osx-3rdparty" "libmoai-osx-fmod-ex" "libmoai-osx-luaext" "libmoai-osx-untz" "libmoai-osx-zlcore" )
-osx_schemes=( "libmoai-osx" "libmoai-osx-3rdparty" "libmoai-osx-luaext" "libmoai-osx-untz" "libmoai-osx-zlcore" )
+osx_schemes=( "libmoai-osx" "libmoai-osx-3rdparty" "libmoai-osx-fmod-ex" "libmoai-osx-luaext" "libmoai-osx-untz" "libmoai-osx-zlcore" )
 osx_sdks=( "macosx" )
 osx_architectures=( "i386" )
 
-# ios_schemes=( "libmoai-ios" "libmoai-ios-3rdparty" "libmoai-ios-facebook" "libmoai-ios-fmod-ex" "libmoai-ios-luaext" "libmoai-ios-tapjoy" "libmoai-ios-untz" "libmoai-ios-zlcore" )
-ios_schemes=( "libmoai-ios" "libmoai-ios-3rdparty" "libmoai-ios-3rdparty-decrypter" "libmoai-ios-facebook" "libmoai-ios-luaext" "libmoai-ios-tapjoy" "libmoai-ios-untz" "libmoai-ios-zlcore" )
-#ios_sdks=( "iphoneos" "iphonesimulator" )
-#ios_architectures=( "i386" "armv6" "armv7" )
-ios_sdks=( "iphoneos" )
-ios_architectures=( "armv7" )
-
+ios_schemes=( "libmoai-ios" "libmoai-ios-3rdparty" "libmoai-ios-facebook" "libmoai-ios-fmod-ex" "libmoai-ios-luaext" "libmoai-ios-tapjoy" "libmoai-ios-untz" "libmoai-ios-zlcore" )
+ios_sdks=( "iphoneos" "iphonesimulator" )
+ios_architectures=( "i386" "armv7" "armv7s" )
 
 usage="usage: $0 [-j <jobName>] [-c Debug|Release|all] [-p osx|ios|all]"
 job="moai"
@@ -107,13 +102,4 @@ for platform in $platforms; do
 			done
 		done
 	done
-done
-
-# copy binaries to moai-dev/build
-mkdir -p "../../build"
-echo ""
-for platform in $platforms; do
-	rm -rf "../../build/$platform"
-	cp -r "/tmp/$job/$platform" "../../build/$platform"
-	echo "Done. Binaries available in ../../build/$platform"
 done
