@@ -182,6 +182,8 @@
 		E92D4809153CA7D800CB1E8A /* TJCVGTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92D4804153CA7D800CB1E8A /* TJCVGTableViewCell.xib */; };
 		E92D480A153CA7D800CB1E8A /* TJCVGView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92D4805153CA7D800CB1E8A /* TJCVGView.xib */; };
 		E96915DC1561D57C007E977B /* libmoai-ios-fmod-ex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD508AA7155E3AF90002FC3B /* libmoai-ios-fmod-ex.a */; };
+		FE7048CF165B285100E3D9AA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7048CE165B285100E3D9AA /* AdSupport.framework */; };
+		FE7048DA165B314900E3D9AA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE7048D9165B314900E3D9AA /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -535,6 +537,8 @@
 		E92D4803153CA7D800CB1E8A /* TJCVGPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TJCVGPageView.xib; path = "../../3rdparty/tapjoyiOS-8.1.9/TapjoyConnect/Components/TJCVirtualGoods/TJCVG_Views/TJCVGPageView.xib"; sourceTree = "<group>"; };
 		E92D4804153CA7D800CB1E8A /* TJCVGTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TJCVGTableViewCell.xib; path = "../../3rdparty/tapjoyiOS-8.1.9/TapjoyConnect/Components/TJCVirtualGoods/TJCVG_Views/TJCVGTableViewCell.xib"; sourceTree = "<group>"; };
 		E92D4805153CA7D800CB1E8A /* TJCVGView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TJCVGView.xib; path = "../../3rdparty/tapjoyiOS-8.1.9/TapjoyConnect/Components/TJCVirtualGoods/TJCVG_Views/TJCVGView.xib"; sourceTree = "<group>"; };
+		FE7048CE165B285100E3D9AA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FE7048D9165B314900E3D9AA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -542,6 +546,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7048CF165B285100E3D9AA /* AdSupport.framework in Frameworks */,
 				665383F5160A7B65003D5529 /* libfacebook_ios_sdk.a in Frameworks */,
 				665383F1160A76E2003D5529 /* libCrittercismCrashOnly_v3_3_3.a in Frameworks */,
 				07E9F73E13B50582006396F3 /* libmoai-ios.a in Frameworks */,
@@ -703,7 +708,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				665383F6160A8466003D5529 /* MessageUI.framework */,
+				FE7048D9165B314900E3D9AA /* Default-568h@2x.png */,
 				665383F4160A7B65003D5529 /* libfacebook_ios_sdk.a */,
 				665383F0160A76E2003D5529 /* libCrittercismCrashOnly_v3_3_3.a */,
 				03CC90AE13B3C39D00B2724C /* libmoai.xcodeproj */,
@@ -747,6 +752,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE7048CE165B285100E3D9AA /* AdSupport.framework */,
+				665383F6160A8466003D5529 /* MessageUI.framework */,
 				03CC910B13B3C48400B2724C /* AudioToolbox.framework */,
 				03CC910313B3C47600B2724C /* CoreAudio.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
@@ -1088,6 +1095,7 @@
 				E92D4809153CA7D800CB1E8A /* TJCVGTableViewCell.xib in Resources */,
 				E92D480A153CA7D800CB1E8A /* TJCVGView.xib in Resources */,
 				665383F3160A798F003D5529 /* FacebookSDKResources.bundle in Resources */,
+				FE7048DA165B314900E3D9AA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1406,7 @@
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(BUILT_PRODUCTS_DIR)/libmoai-ios-tapjoy.a\"",
+					"-ObjC",
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1428,6 +1437,7 @@
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(BUILT_PRODUCTS_DIR)/libmoai-ios-tapjoy.a\"",
+					"-ObjC",
 				);
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
