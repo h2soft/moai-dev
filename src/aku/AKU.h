@@ -85,6 +85,7 @@ AKU_API int				AKUSetWorkingDirectory			( char const* path );
 AKU_API void			AKUSetCountryCode			( char const* name );
 AKU_API void			AKUSetLanguageCode			( char const* name );
 AKU_API void			AKUUpdate						();
+AKU_API void			AKUSetArgv						( char **argv );
 
 // input device api
 AKU_API void			AKUReserveInputDevices			( int total );

@@ -29,6 +29,7 @@ import android.view.Display;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import java.util.Locale;
 // Moai
@@ -95,7 +96,7 @@ public class MoaiActivity extends Activity {
 			
 			ApplicationInfo myApp = getPackageManager ().getApplicationInfo ( getPackageName (), 0 );
 
-			Moai.mount ( "bundle", myApp.publicSourceDir );
+			Moai.mount ( "bundle", myApp.sourceDir );
 			Moai.setWorkingDirectory ( "bundle/assets/@WORKING_DIR@" );				
 		} catch ( NameNotFoundException e ) {
 
@@ -124,8 +125,12 @@ public class MoaiActivity extends Activity {
 		startConnectivityReceiver ();
 		enableAccelerometerEvents ( false );
 		enableLocationEvents ( false );
-
-		setContentView ( mMoaiView );
+		
+		LinearLayoutIMETrap con = MoaiKeyboard.getContainer ();
+		setContentView ( con );
+		con.addView ( mMoaiView );
+		con.addView ( MoaiKeyboard.getEditText ());
+		
     }
 
 	//----------------------------------------------------------------//
@@ -316,6 +321,7 @@ public class MoaiActivity extends Activity {
 	//----------------------------------------------------------------//
 	public boolean onKeyDown ( int keyCode, KeyEvent event ) {
 
+		MoaiLog.i ("MoaiActivity onKeyDown, keycode " + keyCode + " event: " + event );
 	    if ( keyCode == KeyEvent.KEYCODE_BACK ) {
 	        
 			if ( Moai.backButtonPressed ()) {
