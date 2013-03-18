@@ -46,7 +46,7 @@
 			--disable-flurry)  flurry_flags="-DDISABLE_FLURRY";;
 			--disable-tstore)  tstore_flags="-DDISABLE_TSTORE";;
 			--disable-kakao)  kakao_flags="-DDISABLE_KAKAO";;
-			--disable-admob)  kakao_flags="-DDISABLE_ADMOB";;
+			--disable-admob)  admob_flags="-DDISABLE_ADMOB";;
 			-*)
 		    	echo >&2 \
 		    		$usage
