@@ -1,5 +1,7 @@
 #ifndef	MOAITSTOREBILLING_H
 #define	MOAITSTOREBILLING_H
+      
+#ifndef DISABLE_TSTORE
 
 #include <moaicore/moaicore.h>
 
@@ -39,4 +41,5 @@ public:
 	void	RegisterLuaClass		( MOAILuaState& state );
 };
 
-#endif
+#endif //DISABLE_TSTORE
+#endif //MOAITSTOREBILLING_H

@@ -483,11 +483,11 @@ void MOAILayer::Draw ( int subPrimID ) {
 	USRect viewportRect = viewport;
 
 	// TODO:
-	//USMatrix4x4 mtx;
-	//mtx.Init ( this->mLocalToWorldMtx );
+	USMatrix4x4 mtx;
+	mtx.Init ( this->mLocalToWorldMtx );
 	//// TODO:
 	////mtx.Append ( gfxDevice.GetWorldToWndMtx ( 1.0f, 1.0f ));
-	//mtx.Transform ( viewportRect );
+	mtx.Transform ( viewportRect );
 
 	gfxDevice.SetViewRect ( viewportRect );
 	gfxDevice.SetScissorRect ( viewportRect );

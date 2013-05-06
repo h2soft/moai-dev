@@ -3,6 +3,9 @@
 // All Rights Reserved. 
 // http://www.h2soft.kr
 //----------------------------------------------------------------//
+
+#ifndef DISABLE_ADMOB
+  
 #include "pch.h"
 
 #include <jni.h>
@@ -104,3 +107,5 @@ void MOAIAdMobAndroid::RegisterLuaClass ( MOAILuaState& state ) {
 
 	luaL_register ( state, 0, regTable );
 }
+
+#endif

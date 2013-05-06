@@ -1,6 +1,8 @@
 #ifndef MOAIKAKAOLINK_H
 #define MOAIKAKAOLINK_H
 
+#ifndef DISABLE_KAKAO
+
 #include <moaicore/moaicore.h>
 
 //================================================================//
@@ -23,4 +25,5 @@ public:
   void  RegisterLuaClass    ( MOAILuaState& state ); 
 };
 
+#endif
 #endif

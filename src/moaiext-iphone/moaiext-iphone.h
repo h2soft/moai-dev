@@ -18,7 +18,6 @@
 #import <moaiext-iphone/MOAIWebViewDelegate.h>
 #import <moaiext-iphone/MOAIWebViewIOS.h>
 #import <moaiext-iphone/MOAIFlurryIOS.h>
-#import <moaiext-iphone/MOAIAdMobIOS.h>
 
 #import <moaiext-iphone/NSArray+MOAILib.h>
 #import <moaiext-iphone/NSData+MOAILib.h>

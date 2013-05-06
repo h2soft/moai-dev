@@ -1,6 +1,8 @@
 // Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
 // http://getmoai.com
 
+#ifndef DISABLE_KAKAO
+
 #include "pch.h"
 
 #include <jni.h>
@@ -83,3 +85,5 @@ void MOAIKakaoLink::RegisterLuaClass ( MOAILuaState& state ) {
 
 	luaL_register ( state, 0, regTable );
 }
+
+#endif

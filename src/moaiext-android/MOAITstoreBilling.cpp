@@ -1,6 +1,8 @@
 // Copyright (c) 2010-2011 Zipline Games, Inc. All Rights Reserved.
 // http://getmoai.com
 
+#ifndef DISABLE_TSTORE
+  
 #include "pch.h"
 
 #include <jni.h>
@@ -187,3 +189,5 @@ extern "C" void Java_com_ziplinegames_moai_MoaiTstoreBilling_AKUNotifyTstorePurc
 
 	MOAITstoreBilling::Get ().NotifyPurchaseError ( errorCode, subErrorCode );
 }
+
+#endif
