@@ -1,4 +1,4 @@
-./#!/bin/bash
+#!/bin/bash
 
 #----------------------------------------------------------------#
 # Copyright (c) 2010-2011 Zipline Games, Inc.
@@ -12,8 +12,12 @@ osx_sdks=( "macosx" )
 osx_architectures_macosx=( "i386" )
 
 # ios_schemes="libmoai-ios libmoai-ios-3rdparty libmoai-ios-facebook libmoai-ios-fmod-ex libmoai-ios-luaext libmoai-ios-tapjoy libmoai-ios-untz libmoai-ios-zlcore"
+
+# -- decrypter
+# ios_schemes="libmoai-ios libmoai-ios-3rdparty-decrypter libmoai-ios-facebook libmoai-ios-luaext libmoai-ios-tapjoy libmoai-ios-untz libmoai-ios-zlcore"
 ios_schemes="libmoai-ios libmoai-ios-3rdparty libmoai-ios-facebook libmoai-ios-luaext libmoai-ios-tapjoy libmoai-ios-untz libmoai-ios-zlcore"
-ios_sdks="iphoneos iphonesimulator"
+#ios_sdks="iphoneos iphonesimulator"
+ios_sdks="iphoneos"
 ios_architectures_iphonesimulator="i386"
 ios_architectures_iphoneos="armv7 armv7s"
 

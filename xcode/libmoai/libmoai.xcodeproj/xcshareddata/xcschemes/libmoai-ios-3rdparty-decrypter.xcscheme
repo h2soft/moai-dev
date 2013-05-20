@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FE087E301611A25D00F72A45"
+               BlueprintIdentifier = "FE328CC4174A0C5600F0B517"
                BuildableName = "libmoai-ios-3rdparty-decrypter.a"
                BlueprintName = "libmoai-ios-3rdparty-decrypter"
                ReferencedContainer = "container:libmoai.xcodeproj">
